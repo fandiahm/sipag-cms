@@ -63,16 +63,6 @@
      
         });
      
-        //datepicker
-        /*$('.datepicker').datepicker({
-            autoclose: true,
-            format: "yyyy-mm-dd",
-            todayHighlight: true,
-            orientation: "top auto",
-            todayBtn: true,
-            todayHighlight: true,  
-        });*/
-     
         //set input/textarea/select event when change value, remove class error and remove text help block 
         $("input").change(function(){
             $(this).parent().parent().removeClass('has-error');
@@ -92,25 +82,27 @@
     function add_banner()
     {
         save_method = 'add';
-        $('#form')[0].reset(); // reset form on modals
-        $('.form-group').removeClass('has-error'); // clear error class
-        $('.help-block').empty(); // clear error string
-        $('#modal_form').modal('show'); // show bootstrap modal
-        $('.modal-title').text('Add Banner'); // Set Title to Bootstrap modal title
+        $('#form')[0].reset(); 
+        $('.form-group').removeClass('has-error'); 
+        $('.help-block').empty(); 
+        $('#modal_form').modal('show'); 
+        $('.modal-title').text('Add Banner'); 
         $('#id-input-file-3').val('');
      
-        $('#image-preview').hide(); // hide photo preview modal
+        $('#image-preview').hide(); 
      
-        $('#label-image').text('Upload Image'); // label photo upload
+        $('#label-image').text('Upload Image'); 
+        $('#btnSave').attr('onclick', 'save()'); 
     }
      
     function edit_banner(id)
     {
         save_method = 'update';
-        $('#form')[0].reset(); // reset form on modals
-        $('.form-group').removeClass('has-error'); // clear error class
-        $('.help-block').empty(); // clear error string
-     
+        $('#form')[0].reset(); 
+        $('.form-group').removeClass('has-error'); 
+        $('.help-block').empty(); 
+
+        $('#btnSave').attr('onclick', 'update()'); 
      
         //Ajax Load data from ajax
         $.ajax({
@@ -123,22 +115,22 @@
                 $('[name="id"]').val(data.banner_id);
                 $('[name="header"]').val(data.header);
                 $('[name="caption"]').val(data.caption);
-                $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
+                $('#modal_form').modal('show'); 
                 $('#id-input-file-3').val('');
-                $('.modal-title').text('Edit Banner'); // Set title to Bootstrap modal title
+                $('.modal-title').text('Edit Banner'); 
      
-                $('#image-preview').show(); // show photo preview modal
+                $('#image-preview').show(); 
      
                 if(data.image)
                 {
-                    $('#label-image').text('Change Image'); // label photo upload
-                    $('#image-preview div').html('<img src="'+base_url+''+data.image+'" class="img-responsive">'); // show photo
-                    $('#image-preview div').append('<input type="checkbox" name="remove_image" value="'+data.image+'"/> Remove image when saving'); // remove photo
+                    $('#label-image').text('Change Image'); 
+                    $('#image-preview div').html('<img src="'+base_url+''+data.image+'" class="img-responsive">'); 
+                    $('#image-preview div').append('<input type="checkbox" name="remove_image" value="'+data.image+'"/> Remove image when saving'); 
      
                 }
                 else
                 {
-                    $('#label-image').text('Upload Image'); // label photo upload
+                    $('#label-image').text('Upload Image'); 
                     $('#image-preview div').text('(No Image)');
                 }
      
@@ -152,23 +144,20 @@
      
     function reload_table()
     {
-        table.ajax.reload(null,false); //reload datatable ajax 
+        table.ajax.reload(null,false); 
     }
      
     function save()
     {
         if ($("#form").valid()) 
         {
-            $('#btnSave').text('saving...'); //change button text
-            $('#btnSave').attr('disabled',true); //set button disable 
+            $('#btnSave').text('saving...'); 
+            $('#btnSave').attr('disabled',true); 
             var url;
          
             if(save_method == 'add') {
                 url = "<?php echo site_url('admin/banner/banner_add')?>";
                 msg = "New banner has been added.";
-            } else {
-                url = "<?php echo site_url('admin/banner/banner_update')?>";
-                msg = "Banner has been updated.";
             }
          
             // ajax adding data to database
@@ -184,15 +173,10 @@
                 success: function(data)
                 {
          
-                    if(data.status) //if success close modal and reload ajax table
+                    if(data.status) 
                     {
                         $('#modal_form').modal('hide');
                         reload_table();
-                        $.gritter.add({
-                            title: 'Success',
-                            text: msg,
-                            class_name: 'gritter-success'
-                        });
                         new PNotify({
                             title: 'Success',
                             text: msg,
@@ -201,14 +185,14 @@
                     }
                     else
                     {
-                        for (var i = 0; i < data.inputerror.length; i++) 
-                        {
-                            $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                            $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                        }
+                        new PNotify({
+                            title: 'Error',
+                            text: 'Please check your connection or reload page.',
+                            type: 'error'
+                        });
                     }
-                    $('#btnSave').text('save'); //change button text
-                    $('#btnSave').attr('disabled',false); //set button enable 
+                    $('#btnSave').text('save'); 
+                    $('#btnSave').attr('disabled',false); 
          
          
                 },
@@ -219,12 +203,71 @@
                         text: 'Please check your connection or reload page.',
                         type: 'error'
                     });
-                    $('#btnSave').text('save'); //change button text
-                    $('#btnSave').attr('disabled',false); //set button enable 
+                    $('#btnSave').text('save'); 
+                    $('#btnSave').attr('disabled',false); 
          
                 }
             });
         }
+    }
+
+    function update()
+    {
+        $('#btnSave').text('saving...'); 
+        $('#btnSave').attr('disabled',true); 
+        var update_url;
+         
+        if(save_method == 'update') {
+            update_url = "<?php echo site_url('admin/banner/banner_update')?>";
+            msg = "Banner has been updated.";
+        }
+
+        var formData = new FormData($('#form')[0]);
+        $.ajax({
+            url : update_url,
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: "JSON",
+            success: function(data)
+            {
+         
+                if(data.status) 
+                {
+                    $('#modal_form').modal('hide');
+                    reload_table();
+                    new PNotify({
+                        title: 'Success',
+                        text: msg,
+                        type: 'success'
+                    });
+                    console.log(data.responseText);
+                }
+                else
+                {
+                    new PNotify({
+                        title: 'Error',
+                        text: 'Please check your connection or reload page.',
+                        type: 'error'
+                    });
+                    console.log(data.responseText);
+                }
+                $('#btnSave').text('save'); 
+                $('#btnSave').attr('disabled',false); 
+            },
+            error: function (data, jqXHR, textStatus, errorThrown)
+            {
+                new PNotify({
+                    title: 'Error',
+                    text: 'Please check your connection or reload page.',
+                    type: 'error'
+                });
+                console.log(data.responseText);
+                $('#btnSave').text('save'); 
+                $('#btnSave').attr('disabled',false); 
+            }
+        });
     }
 
     function delete_banner(id)
@@ -374,13 +417,13 @@
             focusInvalid: false,
             ignore: "",
             rules: {
-                header: {
+                image: {
                     required: true,
                 }
             },
             messages: {
-                header: {
-                    required: "Please insert header of banner."
+                image: {
+                    required: "Please insert image of banner."
                 }
             },
             highlight: function (e) {
