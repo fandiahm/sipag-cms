@@ -156,7 +156,7 @@ class Banner extends CI_Controller
             $file = $this->upload->data();
             $data_image = 'assets/uploads/banner/' . $file['file_name'];
 
-            $banner = $this->Model_banner->get_by_id($this->input->post('banner_id'));
+            $banner = $this->Model_banner->get_by_id($this->input->post('id'));
 
             if(file_exists($banner->image) && $banner->image)
             {
