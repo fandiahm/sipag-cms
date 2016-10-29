@@ -16,16 +16,19 @@
 			<ul class="mailbox-attachments clearfix">
 				<?php foreach($theme->result() as $row):?>
 		            <?php if($setting == $row->theme_style):?>
-		                <?php $status = '<small class="badge pull-left bg-teal">Active</small>'; ?>
-		                <?php $color  = 'text-green'; ?>
+		                <?php $status = '<small class="badge pull-left bg-green">Active</small>'; ?>
+                        <?php $active = '<h2 class="badge-theme-active pull-left bg-green"><i class="icon fa fa-check"></i></h2>'; ?>
+                        <?php $color  = 'text-green'; ?>
 		            <?php else:?>
 		                <?php $status = ''; ?>
-		                <?php $color  = ''; ?>
+                        <?php $active = ''; ?>
+                        <?php $color  = ''; ?>
 		            <?php endif; ?>
 		            <li>
 		            	<a href="<?php echo base_url(); ?><?php echo $row->theme_thumbnail; ?>" data-rel="colorbox" class="theme-thumbnail">
 		            		<img width="250" height="150" src="<?php echo base_url(); ?><?php echo $row->theme_thumbnail; ?>" alt="Attachment">
 		            	</a>
+                        <?php echo $active; ?>
 		            	<div class="mailbox-attachment-info tools mailbox-attachment-bottom">
 		            		<span class="mailbox-attachment-size">
 		            			<?php echo $status; ?>

@@ -437,6 +437,17 @@ input[type=checkbox].switch.custom-switch+.lbl::after {
     right: 0;
 }
 
+.badge-theme-active {
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    margin: 0; 
+}
+
+.badge-theme-active:hover {
+    opacity: 1;
+}
+
 .mailbox-attachments>li>.tools.mailbox-attachment-bottom {
     width: auto;
     height: 28px;
@@ -464,6 +475,8 @@ input[type=checkbox].switch.custom-switch+.lbl::after {
     position: relative;
     bottom: 5px;
 }
+
+
 
 @media (min-width: 768px) {
 	.modal-dialog.modal-content {
