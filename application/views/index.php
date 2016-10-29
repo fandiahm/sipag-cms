@@ -22,7 +22,7 @@
     <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
     <link rel="stylesheet" href="<?php echo base_url();?><?php echo $theme; ?>">
     <!-- Font -->
-    <link href="<?php echo base_url();?>assets/frontend/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Plugins css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/animate.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/owl-carousel/owl.carousel.css">
