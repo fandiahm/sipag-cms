@@ -273,16 +273,16 @@
     function delete_banner(id)
     {
         bootbox.confirm({
-            title: "<i class='ace-icon fa fa-exclamation-triangle red'></i> Delete banner?",
-            message: "<div class='alert alert-info bigger-110'>This banner will be permanently deleted.</div> <p class='bigger-110 bolder center grey'><i class='ace-icon fa fa-hand-o-right blue bigger-120'></i> Are you sure?</p>",
+            title: "<i class='icon fa fa-exclamation-triangle text-red'></i> Delete banner?",
+            message: "<div class='alert alert-info'>This banner will be permanently deleted.</div> <p class='text-center text-grey'><i class='icon fa fa-hand-o-right text-blue'></i> Are you sure?</p>",
             size: 'small',
             buttons: {
                 cancel: {
-                    label: '<i class="ace-icon fa fa-times"></i> Cancel',
+                    label: '<i class="icon fa fa-times"></i> Cancel',
                     className: 'btn-default'
                 },
                 confirm: {
-                    label: '<i class="ace-icon fa fa-trash"></i> Delete',
+                    label: '<i class="icon fa fa-trash"></i> Delete',
                     className: 'btn-danger'
                 }
             },
