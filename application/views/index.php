@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/owl-carousel/owl.theme.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/frontend/owl-carousel/owl.transitions.css">
     <!-- Our Website CSS Styles -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/sipag.styles.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/sipag-styles.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/styles.css">
 
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.min.js"></script>
