@@ -134,49 +134,56 @@ class Messages extends CI_Controller
         $pass       = $setting->pass_smtp; 
         $from_email = $setting->email_smtp;
 
-        $key          = 'Z7m2j6W50LIvnZ9261tez77rOy423su0';
-        $pass_decrypt = $this->encrypt->decode($pass, $key);
-
-        $email      = $this->input->post('email');
-        $subject    = $this->input->post('subject');
-        $msg        = $this->input->post('msg_text');
-        
-
-        //configure email settings
-        $config['protocol']     = 'smtp';
-        $config['smtp_host']    = 'ssl://smtp.gmail.com';
-        $config['smtp_port']    = '465';
-        $config['smtp_user']    = $from_email;
-        $config['smtp_pass']    = $pass_decrypt;
-        $config['mailtype']     = 'html';
-        $config['charset']      = 'iso-8859-1';
-        $config['wordwrap']     = TRUE;
-        $config['newline']      = "\r\n"; //use double quotes
-        $this->load->library('email', $config);
-        $this->email->initialize($config);    
-
-        $this->email->from($from_email, $sender);
-        $this->email->to($email);  
-        $this->email->subject($subject);
-        $this->email->message($msg);  
-        if($this->email->send()) 
+        if(empty(($sender) OR ($pass) OR ($from_email))) 
         {
-            $data = array(
-                'msg_id'        => $this->input->post('id'),
-                'send_to'       => $this->input->post('email'),
-                'subject_send'  => $this->input->post('subject'),
-                'msg_send'      => $this->input->post('msg_text'),
-                'date_send'     => date('Y-m-d H:i:s'),
-            );
-     
-            $insert = $this->Model_messages_sent->save_sent($data);
-            echo json_encode(array("status" => TRUE));
-        } 
-        else 
-        {
-            echo $pass_decrypt;
             echo json_encode(array("status" => FALSE));
         }
+        else 
+        {
+            $key          = 'Z7m2j6W50LIvnZ9261tez77rOy423su0';
+            $pass_decrypt = $this->encrypt->decode($pass, $key);
+
+            $email      = $this->input->post('email');
+            $subject    = $this->input->post('subject');
+            $msg        = $this->input->post('msg_text');
+            
+
+            //configure email settings
+            $config['protocol']     = 'smtp';
+            $config['smtp_host']    = 'ssl://smtp.gmail.com';
+            $config['smtp_port']    = '465';
+            $config['smtp_user']    = $from_email;
+            $config['smtp_pass']    = $pass_decrypt;
+            $config['mailtype']     = 'html';
+            $config['charset']      = 'iso-8859-1';
+            $config['wordwrap']     = TRUE;
+            $config['newline']      = "\r\n"; //use double quotes
+            $this->load->library('email', $config);
+            $this->email->initialize($config);    
+
+            $this->email->from($from_email, $sender);
+            $this->email->to($email);  
+            $this->email->subject($subject);
+            $this->email->message($msg);  
+            if($this->email->send()) 
+            {
+                $data = array(
+                    'msg_id'        => $this->input->post('id'),
+                    'send_to'       => $this->input->post('email'),
+                    'subject_send'  => $this->input->post('subject'),
+                    'msg_send'      => $this->input->post('msg_text'),
+                    'date_send'     => date('Y-m-d H:i:s'),
+                );
+         
+                $insert = $this->Model_messages_sent->save_sent($data);
+                echo json_encode(array("status" => TRUE));
+            } 
+            else 
+            {
+                echo json_encode(array("status" => FALSE));
+            }
+        }
+
     }
 
     private function _validate()
