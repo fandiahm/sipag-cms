@@ -100,7 +100,7 @@
                 "type": "POST",
                 error: function (jqXHR, textStatus, errorThrown, ex)
 	            {
-	                console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	                //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	                new PNotify({
 					    title: 'Error!',
 					    text: 'Please check your connection or reload page.',
@@ -124,7 +124,7 @@
                 "type": "POST",
                 error: function (jqXHR, textStatus, errorThrown, ex)
 	            {
-	                console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	                //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	                new PNotify({
 					    title: 'Error!',
 					    text: 'Please check your connection or reload page.',
@@ -225,7 +225,6 @@
 	        },
 	        error: function (jqXHR, textStatus, errorThrown, ex)
 	        {
-	            //alert('Error get data from ajax');
 	            //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	            new PNotify({
 					title: 'Error!',
@@ -267,8 +266,7 @@
 	        },
 	        error: function (jqXHR, textStatus, errorThrown, ex)
 	        {
-	            //alert('Error get data from ajax');
-	            console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	            //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	            new PNotify({
 					title: 'Error!',
 					text: 'Please check your connection or reload page.',
@@ -330,11 +328,10 @@
 				    }
 		        });
 
-	            console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	            //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	        },
 	        error: function (jqXHR, textStatus, errorThrown, ex)
 	        {
-	            //alert('Error get data from ajax');
 	            //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	            new PNotify({
 					title: 'Error!',
@@ -383,7 +380,12 @@
 	            }
 	            else
 	            {
-	             	console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	             	//console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	             	new PNotify({
+						title: 'Error!',
+						text: 'Please setup your gmail account to use this feature.',
+						type: 'error'
+					});
 	            }
 	            $('#btnSend').text('Send'); //change button text
 	            $('#btnCancel').attr('disabled',false); //set button enable 
@@ -391,15 +393,14 @@
 	        },
 	        error: function (jqXHR, textStatus, errorThrown, ex)
 	        {
-	            //alert('Error adding / update data');
-	            console.log(textStatus + "," + ex + "," + jqXHR.responseText);
+	            //console.log(textStatus + "," + ex + "," + jqXHR.responseText);
 	            new PNotify({
 					title: 'Error!',
-					text: 'Please check your connection or reload page.',
+					text: 'You may need to check your Gmail SMTP Configuration, because its given wrong data. Otherwise, check your connection or reload page.',
 					type: 'error'
 				});
-	            $('#btnSend').text('Send'); //change button text
-	            $('#btnSend').attr('disabled',false); //set button enable 
+	            $('#btnSend').text('Send');
+	            $('#btnSend').attr('disabled',false); 
 	 
 	        }
 	    });
@@ -442,7 +443,6 @@
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
-                            //alert('Error deleting data');
                             new PNotify({
 								title: 'Error!',
 								text: 'Please check your connection or reload page.',
@@ -500,7 +500,6 @@
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
-                            //alert('Error deleting data');
                             new PNotify({
 								title: 'Error!',
 								text: 'Please check your connection or reload page.',
@@ -550,7 +549,6 @@
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
-                            //alert('Error deleting data');
                             new PNotify({
 								title: 'Error!',
 								text: 'Please check your connection or reload page.',
@@ -607,7 +605,6 @@
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
-                            //alert('Error deleting data');
                             new PNotify({
 								title: 'Error!',
 								text: 'Please check your connection or reload page.',
