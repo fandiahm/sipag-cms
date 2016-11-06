@@ -140,13 +140,19 @@ class Section extends CI_Controller
 
     public function content($sid)
     {
-        $id = $sid;
+        /*
+        ** found new issue :
+        ** illegal sid should redirect to error404 page. 
+        ** Still figure it out....
+        */
+        
+        /*$id = $sid;
         $model = $this->Model_content->find_join($id)->row();
 
         if(empty($model->section_id))
         {
             redirect('admin/error404');
-        }
+        }*/
 
         $base_url   = base_url();
         $title      = '<a href="'.$base_url.'admin/home">Dashboard</a>';
