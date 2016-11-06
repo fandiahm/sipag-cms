@@ -58,6 +58,30 @@
 	        		<!-- /.col -->
 	      		</div>
 	    	</form>
+	    	<?php if(!empty($info)): ?>
+	    		<hr>
+	    		<span class="text">Forgot password? <a href="<?php echo base_url(); ?>admin/reset_password">Click here</a></span>
+  			<?php endif; ?>
+  			<?php $msg = $this->session->flashdata('messages'); ?>
+  			<?php if(!empty($msg)): ?>
+  				<hr>
+  				<div class="alert alert-success alert-dismissible" role="alert">
+				    <button type="button" class="close" data-dismiss="alert">
+				        <i class="icon fa fa-times"></i>
+				    </button>   
+				    <?php echo $msg; ?>
+				</div>
+  			<?php endif; ?>
+  			<?php $err_msg = $this->session->flashdata('err_msg'); ?>
+  			<?php if(!empty($err_msg)): ?>
+  				<hr>
+  				<div class="alert alert-danger alert-dismissible" role="alert">
+				    <button type="button" class="close" data-dismiss="alert">
+				        <i class="icon fa fa-times"></i>
+				    </button>   
+				    <?php echo $err_msg; ?>
+				</div>
+  			<?php endif; ?>
   		</div>
   	<!-- /.login-box-body -->
 	</div>
