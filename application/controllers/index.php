@@ -2,9 +2,9 @@
 
 class Index extends CI_Controller  
 {
-	public function __construct() 
-	{ 
-		parent::__construct(); 
+    public function __construct() 
+    { 
+        parent::__construct(); 
 
         $this->load->database();
 
@@ -13,18 +13,19 @@ class Index extends CI_Controller
             redirect('install/');
         }
 
-		$this->load->model('Model_messages');
-		$this->load->model('Model_banner');
-		$this->load->model('Model_content');
-		$this->load->model('Model_section');
+        $this->load->model('Model_messages');
+        $this->load->model('Model_banner');
+        $this->load->model('Model_content');
+        $this->load->model('Model_section');
         $this->load->model('Model_setting');
         $this->load->model('Model_contact');
         $this->load->model('Model_footer');
-		$this->load->helper(['url','html','form', 'text']);
-	}
-		
-	public function index() 
-	{
+        $this->load->model('Model_menu');
+        $this->load->helper(['url','html','form', 'text']);
+    }
+        
+    public function index() 
+    {
         $id = '1';
 
         $site_name              = $this->Model_setting->site_name();
@@ -48,25 +49,27 @@ class Index extends CI_Controller
         $scrolloffset           = $this->Model_setting->scrolloffset();
 
         $menu          = $this->Model_section->section_menu();
-		$banner        = $this->Model_banner->all();
-		$section       = $this->Model_section->section_priority();
-		$content       = $this->Model_content->list_content();
+        $banner        = $this->Model_banner->all();
+        $section       = $this->Model_section->section_priority();
+        $content       = $this->Model_content->list_content();
         $contact       = $this->Model_contact->find($id)->row();
         $footer        = $this->Model_footer->find($id)->row();
 
-		$number = 0; // looping number
+        $number = 0; // looping number
         
         $length = count($menu->result());
         $last_number = $length + 1;
 
         $data['menu']                   = $menu;
-		$data['banner_item']			= $banner;
-		$data['content_list']	        = $content;
-		$data['section']		        = $section;
+        $data['menu_link']              = $this->Model_menu->menu_priority();
+        $data['li']                     = $this->generate_menu_link($data['menu_link']);
+        $data['banner_item']            = $banner;
+        $data['content_list']           = $content;
+        $data['section']                = $section;
         $data['contact']                = $contact;
         $data['footer_content']         = $footer;
 
-		$data['number']			        = $number;
+        $data['number']                 = $number;
         $data['last_number']            = $last_number;
         $data['site_name']              = $site_name;
         $data['site_title']             = $site_title;
@@ -93,13 +96,13 @@ class Index extends CI_Controller
         $data['scrolltime']             = $scrolltime;
         $data['scrolloffset']           = $scrolloffset;
 
-		$data['header']			= 'templates/header';
+        $data['header']         = 'templates/header';
         $data['banner']         = 'templates/banner';
-		$data['content']		= 'templates/content';
-		$data['footer']			= 'templates/footer';
-		
-		$this->load->view('index', $data); 
-	}
+        $data['content']        = 'templates/content';
+        $data['footer']         = 'templates/footer';
+        
+        $this->load->view('index', $data); 
+    }
 
     public function navbar()
     {
@@ -194,7 +197,36 @@ class Index extends CI_Controller
         return $banner_transition;
     }
 
-	public function ajax_send()
+    public function generate_menu_link($menu_link, $parent = '0')
+    {
+        $li = "";
+        $p1 = array_filter($menu_link, function($a)use($parent){ return $a['menu_parent'] == $parent; });
+
+        foreach ($p1 as $p)
+        {
+            $li_class   = "";
+            $ul_class   = "dropdown-menu";
+            $toggle     = "<a href='".$p['menu_url']."' target='".$p['menu_target']."'>".$p['menu_name']."</a>";
+            $menu_name  = "";
+            $p2 = array_filter($menu_link, function($a)use($p){ return $a['menu_parent'] == $p['menu_id']; });
+
+            if($p2)
+            {
+                $menu_name  = $this->generate_menu_link($menu_link,$p['menu_id']);
+                $li_class   = "dropdown";
+                $ul_class   = "nav navbar-nav navbar-right";
+                $toggle     = '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$p['menu_name'].' <span class="caret"></span></a>'.$menu_name.'';
+            }
+
+            $li .= "<li class='".$li_class."' id='".$p['menu_id']."'>".$toggle."</li>";
+        }
+
+        $ul = '<ul class="'.$ul_class.'">'.$li.'</ul>';
+
+        return $ul;
+    }
+
+    public function ajax_send()
     {
         //$this->_validate(); 
         $data = array(
@@ -230,5 +262,5 @@ class Index extends CI_Controller
             exit();
         }
     }
-	
+    
 } 

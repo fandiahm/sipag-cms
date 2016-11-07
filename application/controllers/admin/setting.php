@@ -2,7 +2,7 @@
 
 class Setting extends CI_Controller 
 {
-	public function __construct() 
+    public function __construct() 
     {
         parent::__construct();
 
@@ -13,6 +13,7 @@ class Setting extends CI_Controller
 
         $this->load->model('Model_setting');
         $this->load->model('Model_section');
+        $this->load->model('Model_menu');
         $this->load->model('Model_user');
         $this->load->helper(['url','html','form', 'file']);
         $this->load->database();
@@ -22,11 +23,11 @@ class Setting extends CI_Controller
     public function index()
     {
 
-    	$base_url   = base_url();
+        $base_url   = base_url();
         $title      = '<a href="'.$base_url.'admin/home">Dashboard</a>';
 
-    	$admin = $this->Model_user->get_admin();
-        $section = $this->Model_section->section_priority();
+        $admin     = $this->Model_user->get_admin();
+        $section   = $this->Model_section->section_priority();
 
         $site_name          = $this->Model_setting->site_name();
         $site_title         = $this->Model_setting->site_title();
@@ -36,8 +37,10 @@ class Setting extends CI_Controller
         $scrolltime         = $this->Model_setting->scrolltime();
         $scrolloffset       = $this->Model_setting->scrolloffset();
 
-		$data['admin']              = $admin;
+        $data['admin']              = $admin;
         $data['section']            = $section;
+        $data['menu_list']          = $this->Model_menu->menu_priority();
+        $data['li']                 = $this->generate_list($data['menu_list']);
         $data['site_name']          = $site_name;
         $data['site_title']         = $site_title;
         $data['site_logo']          = $site_logo;
@@ -45,14 +48,14 @@ class Setting extends CI_Controller
         $data['meta_keyword']       = $meta_keyword;
         $data['scrolltime']         = $scrolltime . ' ms';
         $data['scrolloffset']       = $scrolloffset . ' px';
-		$data['header']			    = 'admin/header';
-		$data['menu']			    = 'admin/menu';
-		$data['content']		    = 'admin/setting';
-		$data['title']			    = $title;
-		$data['sub_title']		    = 'Setting';
-		$data['username'] 		    = $this->session->userdata('username');
+        $data['header']             = 'admin/header';
+        $data['menu']               = 'admin/menu';
+        $data['content']            = 'admin/setting';
+        $data['title']              = $title;
+        $data['sub_title']          = 'Setting';
+        $data['username']           = $this->session->userdata('username');
 
-		$this->load->view('admin/home', $data); 
+        $this->load->view('admin/home', $data); 
     }
 
     public function get_id($id)
@@ -234,11 +237,47 @@ class Setting extends CI_Controller
         $items = $this->input->post('item');
         $total_items = count($this->input->post('item'));
 
-        //echo '<h3>Debugging</h3>';
-        //echo "<p>Total items sent: $total_items</p>";
-
         $this->Model_section->update_priority($total_items, $items);
         echo json_encode(array("status" => TRUE));
+    }
+
+    public function generate_list($menu_list, $parent = '0')
+    {
+        $li = "";
+        $p1 = array_filter($menu_list, function($a)use($parent){ return $a['menu_parent'] == $parent; });
+
+        foreach ($p1 as $p)
+        {
+            $menu_name = "";
+            $p2 = array_filter($menu_list, function($a)use($p){ return $a['menu_parent'] == $p['menu_id']; });
+
+            if($p2)
+            {
+                $menu_name = $this->generate_list($menu_list,$p['menu_id']);
+            }
+
+            $li .= "<li class='dd-item' data-id='".$p['menu_id']."'><div class='dd-handle'>".$p['menu_name']."</div>".$menu_name."</li>";
+        }
+
+        $ol = "<ol class='dd-list'>".$li."</ol>";
+
+        return $ol;
+    }
+
+    public function update_menu_priority()
+    {
+        $data = $this->input->post('list');
+        if (count($data)) {
+            $update = $this->Model_menu->update_priority_data($data);
+            if ($update) {
+                $result['status'] = "success";
+            } else {
+                $result['status'] = "error";
+            }
+        } else {
+            $result['status'] = "error";
+        }
+        echo json_encode($result);
     }
 
     public function update_site_name()

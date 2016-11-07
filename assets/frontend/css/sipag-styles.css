@@ -17,6 +17,10 @@ li a.active {
     width: auto;
 }
 
+.navbar-default .navbar-nav>li>a {
+    cursor: pointer;
+}
+
 .section-auto {
     padding: 25px 0;
 }
