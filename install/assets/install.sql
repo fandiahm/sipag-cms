@@ -105,6 +105,25 @@ INSERT INTO `footer` (`footer_id`, `footer_content`, `footer_color`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `menu_link`
+--
+
+CREATE TABLE `menu_link` (
+  `menu_id` int(11) NOT NULL,
+  `menu_name` varchar(255) NOT NULL,
+  `menu_url` text NOT NULL,
+  `menu_target` text NOT NULL,
+  `menu_parent` int(11) NOT NULL,
+  `menu_priority` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `menu_link`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `messages`
 --
 
