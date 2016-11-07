@@ -2,12 +2,12 @@
 
 class Model_user extends CI_Model 
 {
-	
-	public function all() 
+    
+    public function all() 
     {
-		$result = $this->db->get('user');
-      	return $result;
-	}
+        $result = $this->db->get('user');
+        return $result;
+    }
 
     public function get_admin() 
     {
@@ -31,49 +31,55 @@ class Model_user extends CI_Model
         return $this->db->get()->row()->level;
     }
 
- 	public function find($id) 
+    public function find($id) 
     {
- 		$row = $this->db->where('user_id',$id)->limit(1)->get('user');
-      	return $row;
- 	}
+        $row = $this->db->where('user_id',$id)->limit(1)->get('user');
+        return $row;
+    }
 
- 	public function create($data) 
+    public function find_by_email($email) 
     {
- 		try
+        $row = $this->db->where('email',$email)->limit(1)->get('user');
+        return $row;
+    }
+
+    public function create($data) 
+    {
+        try
         {
-         	$this->db->insert('user', $data);
-         	return true;
-      	}
+            $this->db->insert('user', $data);
+            return true;
+        }
         catch(Exception $e)
         {
-         	echo $e->getMessage();
-      	}
- 	}
+            echo $e->getMessage();
+        }
+    }
 
- 	public function update($id, $data) 
+    public function update($id, $data) 
     {
- 		try
+        try
         {
-         	$this->db->where('user_id',$id)->limit(1)->update('user', $data);
-         	return true;
-      	}
+            $this->db->where('user_id',$id)->limit(1)->update('user', $data);
+            return true;
+        }
         catch(Exception $e)
         {
-         	echo $e->getMessage();
-      	}
- 	}
+            echo $e->getMessage();
+        }
+    }
 
- 	public function delete($id) 
+    public function delete($id) 
     {
- 		try 
+        try 
         {
-         	$this->db->where('user_id',$id)->delete('user');
-         	return true;
-      	}
-      	catch(Exception $e) {
-        	echo $e->getMessage();
-      	}
- 	}
+            $this->db->where('user_id',$id)->delete('user');
+            return true;
+        }
+        catch(Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
     public function view($id) 
     {
@@ -126,7 +132,7 @@ class Model_user extends CI_Model
 
     public function delete_tmp_link()
     {
-        $this->db->query("DELETE FROM tmp_link WHERE `create_time` < (NOW() - INTERVAL 2 MINUTE)");
+        $this->db->query("DELETE FROM tmp_link WHERE `create_time` < (NOW() - INTERVAL 1 MINUTE)");
     }
 
     function isEmailExist($email) 
@@ -177,5 +183,5 @@ class Model_user extends CI_Model
             return false;
         }
    }
-	
+    
 }

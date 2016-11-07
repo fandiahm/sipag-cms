@@ -35,7 +35,25 @@
   				<i class="fa fa-coffee green"></i> 
 				Please enter your information
   			</h4>
-	    	
+	    	<hr>
+	    	<?php $msg = $this->session->flashdata('messages'); ?>
+  			<?php if(!empty($msg)): ?>
+  				<div class="alert alert-success alert-dismissible" role="alert">
+				    <button type="button" class="close" data-dismiss="alert">
+				        <i class="icon fa fa-times"></i>
+				    </button>   
+				    <?php echo $msg; ?>
+				</div>
+  			<?php endif; ?>
+	    	<?php $info = $this->session->flashdata('info'); ?>
+			<?php if(!empty($info)): ?>
+			   	<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert">
+					    <i class="icon fa fa-times"></i>
+					</button> 
+					<?php echo $info; ?>
+				</div>
+			<?php endif; ?>
 	    	<form method="post" action="<?php echo base_url(); ?>admin/auth/check_login" />
 	      		<div class="form-group has-feedback">
 			        <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
@@ -45,10 +63,6 @@
 	        		<input type="password" name="password" class="form-control" placeholder="Password" required>
 	        		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 	      		</div>
-	      		<?php $info = $this->session->flashdata('info'); ?>
-				<?php if(!empty($info)): ?>
-					<span class='text-red'><?php echo $info; ?></span>
-				<?php endif; ?>
 	      		<div class="row">
 	        		<!-- /.col -->
 	        		<div class="col-xs-8"></div>
@@ -58,30 +72,8 @@
 	        		<!-- /.col -->
 	      		</div>
 	    	</form>
-	    	<?php if(!empty($info)): ?>
-	    		<hr>
-	    		<span class="text">Forgot password? <a href="<?php echo base_url(); ?>admin/reset_password">Click here</a></span>
-  			<?php endif; ?>
-  			<?php $msg = $this->session->flashdata('messages'); ?>
-  			<?php if(!empty($msg)): ?>
-  				<hr>
-  				<div class="alert alert-success alert-dismissible" role="alert">
-				    <button type="button" class="close" data-dismiss="alert">
-				        <i class="icon fa fa-times"></i>
-				    </button>   
-				    <?php echo $msg; ?>
-				</div>
-  			<?php endif; ?>
-  			<?php $err_msg = $this->session->flashdata('err_msg'); ?>
-  			<?php if(!empty($err_msg)): ?>
-  				<hr>
-  				<div class="alert alert-danger alert-dismissible" role="alert">
-				    <button type="button" class="close" data-dismiss="alert">
-				        <i class="icon fa fa-times"></i>
-				    </button>   
-				    <?php echo $err_msg; ?>
-				</div>
-  			<?php endif; ?>
+	    	<br>
+	    	<span class="text">Forgot password? <a href="<?php echo base_url(); ?>admin/reset_password">Click here</a></span>
   		</div>
   	<!-- /.login-box-body -->
 	</div>

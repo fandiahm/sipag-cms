@@ -16,6 +16,8 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   	<!-- Theme style -->
   	<link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/AdminLTE.min.css">
+  	<!-- Plugin -->
+  	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/pnotify/pnotify.custom.min.css" />
 
   	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +35,7 @@
   		<div class="login-box-body">
   			<h4 class="login-box-message text-center">
   				<i class="fa fa-key"></i> 
-				Reset password form
+				Reset password
   			</h4>
 	    	<hr>
 	    	<?php if(validation_errors() OR isset($error)): ?>
@@ -47,25 +49,17 @@
 			<?php endif; ?>
 			<?php $msg = $this->session->flashdata('error'); ?>
   			<?php if(!empty($msg)): ?>
-  				<div class="alert alert-danger alert-dismissible" role="alert">
+  				<div class="alert alert-error alert-dismissible" role="alert">
 				    <button type="button" class="close" data-dismiss="alert">
 				        <i class="icon fa fa-times"></i>
 				    </button>   
 				    <?php echo $msg; ?>
 				</div>
   			<?php endif; ?>
-	    	<form id="validation-form" method="post" action="<?php echo base_url(); ?>admin/reset_password/user/<?php echo $id; ?>" />
-	      		<div class="form-group">
-	      			<label>Username</label>
-	      			<input type="text" value="<?php echo $username; ?>" name="username" id="username" class="form-control" readonly="readonly">
-	      		</div>
-	      		<div class="form-group">
-	      			<label>New password</label>
-	      			<input type="password" name="newpassword" id="newpassword" class="form-control" maxlength="32" placeholder="Your new password" autofocus/>
-	      		</div>
-	      		<div class="form-group">
-	      			<label>Re-type password</label>
-	      			<input type="password" name="repassword" id="repassword" class="form-control" maxlength="32" placeholder="Re-type your new password" />
+	    	<form method="post" action="<?php echo base_url(); ?>admin/reset_password/send_link" />
+	      		<div class="form-group has-feedback">
+			        <input type="text" name="email" class="form-control" placeholder="Email address" required autofocus>
+			        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 	      		</div>
 	      		<div class="row">
 	        		<!-- /.col -->
@@ -86,57 +80,22 @@
 	<!-- Bootstrap 3.3.6 -->
 	<script src="<?php echo base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Plugin -->
-	<script src="<?php echo base_url();?>assets/plugins/validate/jquery.validate.min.js"></script>
-
-	<script type="text/javascript">
-		jQuery(function($) {
-			/*  validation form*/
-			$('#validation-form').validate({
-				errorElement: 'div',
-				errorClass: 'help-block',
-				focusInvalid: true,
-				ignore: "",
-				rules: {
-					newpassword: {
-						required: true,
-						minlength: 5
-					},
-					repassword: {
-						required: true,
-						minlength: 5,
-						equalTo: "#newpassword"
-					}
-				},
-				messages: {
-					newpassword: {
-						required: "New password is required.",
-						minlength: "New password is too short."
-					},
-					repassword: {
-						required: "Please confirm new password.",
-						minlength: "Password not match."
-					}
-				},
-				highlight: function (e) {
-					$(e).closest('.form-group').removeClass('has-info').addClass('has-error');
-				},
-				success: function (e) {
-					$(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
-					$(e).remove();
-				},
-				errorPlacement: function (error, element) {
-					if(element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-						var controls = element.closest('div[class*="col-"]');
-						if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
-						else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
-					}
-					else error.insertAfter(element.parent());
-				},
-				//submitHandler: function (form) {},
-				invalidHandler: function (form) {
-				}
-			});
-		})
+	<script src="<?php echo base_url();?>assets/plugins/pnotify/pnotify.custom.min.js"></script>
+	
+	<script>
+		PNotify.prototype.options.styling = "bootstrap3";
+		$(document).on('ready', function(){
+			if(navigator.onLine){
+				console.log('Connection is success!');
+			} else {
+				$('#btnSend').attr('disabled',true);
+				new PNotify({
+					title: 'No internet connection!',
+					text: 'Reset password link will send through your email address. Please check your connection and try reloading this page.',
+					type: 'error'
+				});
+			}
+		});
 	</script>
 
 </body>

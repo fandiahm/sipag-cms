@@ -29,6 +29,7 @@ class Reset_password extends CI_Controller
         $update = $this->Model_user->find_tmp_join($email)->row();
 
         $id_update 	= $update->id;
+        $user_id	= $update->user_id;
         $username	= $update->username;
 
         $rules = [
@@ -48,7 +49,7 @@ class Reset_password extends CI_Controller
         {
             $data = ['password' => md5($this->input->post('newpassword'))];
 
-            $this->Model_user->update_tmp_link($id, $data);
+            $this->Model_user->update($user_id, $data);
             $this->Model_user->delete_tmp_link();
             $this->session->set_flashdata('messages', 'Reset password is success..');
             redirect('admin/auth');
