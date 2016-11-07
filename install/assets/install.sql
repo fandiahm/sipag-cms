@@ -326,6 +326,12 @@ ALTER TABLE `footer`
   ADD PRIMARY KEY (`footer_id`);
 
 --
+-- Indexes for table `menu_link`
+--
+ALTER TABLE `menu_link`
+  ADD PRIMARY KEY (`menu_id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -390,6 +396,11 @@ ALTER TABLE `content`
 --
 ALTER TABLE `footer`
   MODIFY `footer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `menu_link`
+--
+ALTER TABLE `menu_link`
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `messages`
 --
