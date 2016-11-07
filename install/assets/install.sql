@@ -105,6 +105,25 @@ INSERT INTO `footer` (`footer_id`, `footer_content`, `footer_color`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `menu_link`
+--
+
+CREATE TABLE `menu_link` (
+  `menu_id` int(11) NOT NULL,
+  `menu_name` varchar(255) NOT NULL,
+  `menu_url` text NOT NULL,
+  `menu_target` text NOT NULL,
+  `menu_parent` int(11) NOT NULL,
+  `menu_priority` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `menu_link`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `messages`
 --
 
@@ -307,6 +326,12 @@ ALTER TABLE `footer`
   ADD PRIMARY KEY (`footer_id`);
 
 --
+-- Indexes for table `menu_link`
+--
+ALTER TABLE `menu_link`
+  ADD PRIMARY KEY (`menu_id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -371,6 +396,11 @@ ALTER TABLE `content`
 --
 ALTER TABLE `footer`
   MODIFY `footer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `menu_link`
+--
+ALTER TABLE `menu_link`
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `messages`
 --
