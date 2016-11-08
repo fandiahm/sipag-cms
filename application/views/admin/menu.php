@@ -21,7 +21,8 @@
 				            <li><a href="<?php echo base_url(); ?>admin/section"><i class="fa fa-circle-o"></i> Section</a></li>
 				            <li><a href="<?php echo base_url(); ?>admin/content"><i class="fa fa-circle-o"></i> Content</a></li>
 				            <li><a href="<?php echo base_url(); ?>admin/banner"><i class="fa fa-circle-o"></i> Banner</a></li>
-				            <li><a href="<?php echo base_url(); ?>admin/contact"><i class="fa fa-circle-o"></i> Contact & Footer</a></li>
+				            <li><a href="<?php echo base_url(); ?>admin/menu"><i class="fa fa-circle-o"></i> Menu Link</a></li>
+                            <li><a href="<?php echo base_url(); ?>admin/contact"><i class="fa fa-circle-o"></i> Contact & Footer</a></li>
                        </ul>
         			</li>
         			<li>

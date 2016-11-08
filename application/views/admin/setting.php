@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <div class="row">
-	<div class="col-md-3">
+    <div class="col-md-3">
         <div class="box box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">Logo site</h3>
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-	</div>
+    </div>
     <div class="col-md-9">
         <div class="box box-info">
             <div class="box-header with-border">
@@ -402,6 +402,33 @@
                 </div>
             </div>
 
+            <div class="box box-default box-solid widget-box-order">
+                <div class="box-header">
+                    <h3 class="box-title">
+                        <i class="icon fa fa-bars"></i> 
+                        Order Menu
+                    </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="dd" id="nestable">
+                        <?php if(isset($menu_list)): ?>
+                            <?php if (count($menu_list) > 0): ?>
+                                <?php echo $li; ?>
+                            <?php else:?>
+                                <div class="alert alert-info">
+                                    <p class="text-center">Empty</p>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
             <div class="box box-default box-solid widget-box-scroll">
                 <div class="box-header">
                     <h3 class="box-title">
@@ -436,7 +463,7 @@
 
 <script>
 
-	PNotify.prototype.options.styling = "bootstrap3";
+    PNotify.prototype.options.styling = "bootstrap3";
     PNotify.prototype.options.delay = 3000;
 
     var save_method;
@@ -848,7 +875,7 @@
         });
     }
 
-	function get_logo(id)
+    function get_logo(id)
     {
         $.ajax({
             url : "<?php echo site_url('admin/setting/get_id')?>/1",
@@ -907,10 +934,59 @@
                 });
             }
         });
+
+        var updateOutput = function(e)
+        {
+            //var url13 = '<?php echo site_url("admin/setting/update_menu_priority")?>';
+            var list   = e.length ? e : $(e.target), output = list.data('output');
+
+            $.ajax({
+                method:'POST',
+                url: '<?php echo site_url("admin/setting/update_menu_priority")?>',
+                data: {list: list.nestable('serialize')},
+                dataType: 'JSON',
+                success: function (result) {
+                    if (result['status'] == "success") {
+                        //console.log(result.responseText);
+                        new PNotify({
+                            title: 'Success',
+                            text: 'Ordering section-menu succeed.',
+                            type: 'success'
+                        });
+                    } else {
+                        //console.log(result.responseText);
+                        new PNotify({
+                            title: 'Error!',
+                            text: 'Ordering section-menu has failed. Why this is happening?',
+                            type: 'error'
+                        });
+                    } 
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown, ex) {
+                    //console.log(textStatus + "," + errorThrown + "," + jqXHR.responseText);
+                    new PNotify({
+                        title: 'Error!',
+                        text: 'Ordering section-menu has failed. Why this is happening?',
+                        type: 'error'
+                    });
+                }
+            });
+        };
+        
+        $('.dd').nestable({
+            maxDepth: 2
+        }).on('change', updateOutput);
+
+        $('.dd-handle a').on('mousedown', function(e){
+            e.stopPropagation();
+        });
+
     });
 
-	jQuery(function($) {
-		/* editable form*/
+    jQuery(function($) {
+            
+        /* editable form*/
         $.fn.editable.defaults.mode = 'inline';
         $.fn.editableform.loading = "<div class='editableform-loading'></div>";
         $.fn.editableform.buttons = '<button type="submit" class="btn btn-sm btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
@@ -1115,18 +1191,18 @@
                         if(last_gritter) PNotify.removeAll(last_gritter);
                         if(error_type == 1) {//file format error
                             last_gritter = new PNotify({
-	                            title: 'File is not an image!',
-	                            text: 'Please choose a jpg|gif|png image!',
-	                            type: 'error',
-	                            addclass: "stack-modal"
-	                        });
+                                title: 'File is not an image!',
+                                text: 'Please choose a jpg|gif|png image!',
+                                type: 'error',
+                                addclass: "stack-modal"
+                            });
                         } else if(error_type == 2) {//file size rror
                             last_gritter = new PNotify({
-	                            title: 'File too big!',
-	                            text: 'Image size should not exceed 100Kb!',
-	                            type: 'error',
-	                            addclass: "stack-modal"
-	                        });
+                                title: 'File too big!',
+                                text: 'Image size should not exceed 100Kb!',
+                                type: 'error',
+                                addclass: "stack-modal"
+                            });
                         }
                         else {//other error
                         }
@@ -1220,10 +1296,10 @@
                             },
                             success : function() {
                                 new PNotify({
-		                            title: 'Success!',
-		                            text: 'Update site logo succeed.',
-		                            type: 'success'
-		                        });
+                                    title: 'Success!',
+                                    text: 'Update site logo succeed.',
+                                    type: 'success'
+                                });
                             },
                             error : function(jqXHR, textStatus, errorThrown) {
                             }
@@ -1248,5 +1324,5 @@
                 }
             })
         }catch(e) {}
-	})
+    })
 </script>

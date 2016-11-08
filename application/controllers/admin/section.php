@@ -140,17 +140,19 @@ class Section extends CI_Controller
 
     public function content($sid)
     {
+        $model = $this->Model_section->find($sid)->row();
+
+        if(empty($model->section_id))
+        {
+            redirect('admin/error404');
+        }
+
         $base_url   = base_url();
         $title      = '<a href="'.$base_url.'admin/home">Dashboard</a>';
         $sub_title  = '<a href="'.$base_url.'admin/section">Section</a>';
 
         $admin           = $this->Model_user->get_admin();
         $content_list    = $this->Model_content->content_by_section($sid); 
-
-        if ($content_list->num_rows() == 0) 
-        {
-            redirect('admin/error404');
-        }
 
         $data['admin']          = $admin;
         $data['content_list']   = $content_list;

@@ -21,12 +21,15 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <?php if(isset($menu_link)): ?>
-                <?php if (count($menu_link) > 0): ?>
-                    <?php echo $li; ?>
-                <?php else:?>
+            <ul class="nav navbar-nav <?php echo $position; ?>">
+                <?php if(isset($menu_link)): ?>
+                    <?php if (count($menu_link) > 0): ?>
+                        <?php echo $li; ?>
+                    <?php else:?>
+                    <?php endif; ?>
                 <?php endif; ?>
-            <?php endif; ?>
+            </ul>
+            
             <ul class="nav navbar-nav <?php echo $position; ?>">
                 <?php foreach($menu->result() as $menu): ?>
                     <?php $number++; ?>
