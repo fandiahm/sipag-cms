@@ -132,7 +132,7 @@ class Model_user extends CI_Model
 
     public function delete_tmp_link()
     {
-        $this->db->query("DELETE FROM tmp_link WHERE `create_time` < (NOW() - INTERVAL 1 MINUTE)");
+        $this->db->query("DELETE FROM tmp_link WHERE `create_time` < (NOW() - INTERVAL 20 SECOND)");
     }
 
     function isEmailExist($email) 
