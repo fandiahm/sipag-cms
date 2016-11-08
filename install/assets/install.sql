@@ -233,7 +233,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`setting_id`, `site_name`, `site_title`, `site_logo`, `meta_keyword`, `meta_description`, `site_theme`, `name_smtp`, `email_smtp`, `pass_smtp`, `banner_display`, `banner_display_header`, `banner_display_caption`, `banner_display_button`, `banner_nav_button`, `banner_autoplay`, `banner_animation`, `section_title_tinymce`, `section_advanced_option`, `section_bgcolor`, `section_bgimage`, `navbar_inverse`, `navbar_transparent`, `navbar_pull_right`, `display_logo`, `display_navbar`, `display_contact`, `display_footer`, `scroll_time`, `scroll_offset`) VALUES
-(1, 'Sipag CMS', 'Sipag CMS | Single Page Web Application', 'assets/uploads/logo/1475653507_codeigniter-icon.png', 'Single Page, CMS, Web App, Web Builder, Codeigniter, Ajax', 'Sipag CMS, easy and simple cms app with rich features', 'theme/cosmo/bootstrap_min.css', 'Sipag CMS', '', '', '1', '1', '1', '0', '1', '0', '2', '1', '1', '1', '1', '0', '0', '1', '1', '1', '0', '1', 1000, 0);
+(1, 'Sipag CMS', 'Sipag CMS | Single Page Web Application', 'assets/uploads/logo/1475653507_codeigniter-icon.png', '', '', 'theme/cosmo/bootstrap_min.css', 'Sipag CMS', '', '', '1', '1', '1', '0', '1', '0', '2', '0', '1', '1', '1', '0', '0', '1', '1', '1', '0', '1', 1000, 0);
 
 -- --------------------------------------------------------
 

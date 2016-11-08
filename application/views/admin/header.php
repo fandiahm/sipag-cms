@@ -28,9 +28,10 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/bootstrap-editable/css/bootstrap-editable.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/colorbox/colorbox.min.css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/colorpicker/bootstrap-colorpicker.min.css" />
-	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/chosen/chosen.min.css" />
-	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/animate/animate.css" />
-	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/iCheck/flat/blue.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/chosen/chosen.min.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/nestable/custom.nestable.min.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/animate/animate.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/iCheck/flat/blue.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/pnotify/pnotify.custom.min.css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/backend/css/style.css" />
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -60,6 +61,7 @@
     <script src="<?php echo base_url();?>assets/plugins/bootbox/bootbox.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/chosen/chosen.jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/pnotify/pnotify.custom.min.js"></script>
+    <script src="<?php echo base_url();?>assets/plugins/nestable/jquery.nestable.min.js"></script>
     <script src="<?php echo base_url();?>assets/plugins/ace/js/ace-elements.min.js"></script>  
     <script src="<?php echo base_url();?>assets/plugins/ace/js/ace-editable.min.js"></script>  
     <script src="<?php echo base_url();?>assets/plugins/ace/js/ace.min.js"></script>  
