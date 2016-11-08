@@ -88,11 +88,11 @@
 				    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="title"> Section title</label>
 
 					<div class="col-xs-12 col-sm-9">
-					    <div class="input-group col-xs-12 col-sm-8">
-					        <input type="text" name="title" id="title" value="<?php echo $section_title; ?>" class="form-control" placeholder="Section title"/>
-					        <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="If you want to use Tinymce editor go to setting." title="Information"><i class="icon fa fa-info-circle"></i></span>
-					    </div>
-					</div>
+                        <div class="input-group col-xs-12 col-sm-8">
+                            <input type="text" name="title" id="title" value="<?php echo strip_tags(htmlspecialchars_decode($section_title)); ?>" class="form-control" placeholder="Section title"/>
+                            <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="If you want to use Tinymce editor go to setting." title="Information"><i class="icon fa fa-info-circle"></i></span>
+                        </div>
+                    </div>
 				</div>
 			<?php else: ?>
 				    

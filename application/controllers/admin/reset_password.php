@@ -78,9 +78,9 @@ class Reset_password extends CI_Controller
 	        $pass       = $setting->pass_smtp; 
 	        $from_email = $setting->email_smtp;
 
-	        if(empty(($sender) OR ($pass) OR ($from_email))) 
+	        if(empty(($pass) OR ($from_email))) 
 	        {
-	            $this->session->set_flashdata('error', 'Please contact developer of this site.');
+	            $this->session->set_flashdata('error', 'Email SMTP is not configure yet. Please contact developer of this site.');
         		$this->load->view('admin/reset_password');
 	        }
 	        else
@@ -151,7 +151,7 @@ class Reset_password extends CI_Controller
 	            }
 	            else
 	            {
-	            	$this->session->set_flashdata('error', 'Please check your connection and try again. '.$err_msg.'');
+	            	$this->session->set_flashdata('error', 'Please check your connection and try again. ');
 	            	$this->load->view('admin/reset_password');
 	            }
 	        }
