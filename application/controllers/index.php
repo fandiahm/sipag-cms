@@ -205,7 +205,7 @@ class Index extends CI_Controller
         foreach ($p1 as $p)
         {
             $li_class   = "";
-            $ul_class   = "dropdown-menu";
+            $ul_class   = "";
             $toggle     = "<a href='".$p['menu_url']."' target='".$p['menu_target']."'>".$p['menu_name']."</a>";
             $menu_name  = "";
             $p2 = array_filter($menu_link, function($a)use($p){ return $a['menu_parent'] == $p['menu_id']; });
@@ -214,14 +214,14 @@ class Index extends CI_Controller
             {
                 $menu_name  = $this->generate_menu_link($menu_link,$p['menu_id']);
                 $li_class   = "dropdown";
-                $ul_class   = "nav navbar-nav navbar-right";
-                $toggle     = '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$p['menu_name'].' <span class="caret"></span></a>'.$menu_name.'';
+                $ul_class   = "dropdown-menu";
+                $toggle     = '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$p['menu_name'].' <span class="caret"></span></a><ul class="dropdown-menu">'.$menu_name.'</ul>';
             }
 
             $li .= "<li class='".$li_class."' id='".$p['menu_id']."'>".$toggle."</li>";
         }
 
-        $ul = '<ul class="'.$ul_class.'">'.$li.'</ul>';
+        $ul = $li;
 
         return $ul;
     }
