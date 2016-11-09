@@ -418,7 +418,7 @@
             selector: '#editor_title',
             height: 100,
             theme: 'modern',
-            content_css: '/'+fpath+'/assets/font-awesome/4.2.0/css/font-awesome.min.css',
+            content_css: '/'+fpath+'/assets/font-awesome/4.7.0/css/font-awesome.min.css',
             plugins: [
                 'textcolor colorpicker visualblocks fontawesome noneditable code',
             ],

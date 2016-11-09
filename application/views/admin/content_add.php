@@ -342,7 +342,7 @@
             theme: 'modern',
             relative_urls:false,
             external_filemanager_path:"/"+fpath+"/assets/plugins/filemanager/",
-            content_css: '/'+fpath+'/assets/font-awesome/4.2.0/css/font-awesome.min.css',
+            content_css: '/'+fpath+'/assets/font-awesome/4.7.0/css/font-awesome.min.css',
             filemanager_title:"Responsive Filemanager" ,
             external_plugins: { "filemanager" : "filemanager/plugin.min.js"},
             plugins: [
