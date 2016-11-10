@@ -54,7 +54,7 @@
 				<label class="control-label col-xs-12 col-sm-2 no-padding-right" for="content_title"> Content title</label>
 				<div class="col-xs-12 col-sm-9">
 					<div class="input-group col-xs-12 col-sm-8">
-					    <input type="text" name="content_title" id="content_title" value="<?php echo $content_list->content_title; ?>" class="form-control limited" maxlength="20" placeholder="Content title"/>
+					    <input type="text" name="content_title" id="content_title" value="<?php echo $content_list->content_title; ?>" class="form-control limited" maxlength="100" placeholder="Content title"/>
 					    <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="You can display/hide title on advanced option tab." title="Information"><i class="icon fa fa-info-circle"></i></span>
 					</div>
 				</div>
