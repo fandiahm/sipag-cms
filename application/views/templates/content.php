@@ -90,454 +90,57 @@
                     <!-- IF section layout 1 column -->
                     <?php if($section_layout == '1'): ?>
 
-                        <!-- show content -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-12 col-md-12">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div id="wow" class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_1', Array('sid' => $sid));?>
 
                     <!-- IF section layout 2 column -->
                     <?php elseif($section_layout == '2'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-6 col-md-6">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_2', Array('sid' => $sid));?>
 
                     <!-- IF section layout 3 column -->
                     <?php elseif($section_layout == '3'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-4 col-md-4">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive content-thumbnail center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_3', Array('sid' => $sid));?>
 
                     <!-- IF section layout 4 column -->
                     <?php elseif($section_layout == '4'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-3 col-md-3">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_4', Array('sid' => $sid));?>
 
                     <!-- IF section layout 5 column -->
                     <?php elseif($section_layout == '5'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="col-lg-1 col-md-1"></div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-2 col-md-2">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <div class="col-lg-1 col-md-1"></div>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_5', Array('sid' => $sid));?>
 
                     <!-- IF section layout 6 column -->
                     <?php elseif($section_layout == '6'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-2 col-md-2">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_6', Array('sid' => $sid));?>
 
                     <!-- IF section layout left image -->
                     <?php elseif($section_layout == '21'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-6 col-md-6">
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_21', Array('sid' => $sid));?>
 
                     <!-- IF section layout right image -->
                     <?php elseif($section_layout == '22'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-6 col-md-6">
-                                    <?php if($content->display_title_content == '1'):?>
-                                        <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo $content->content_title;?>
-                                        </h3>
-                                    <?php endif;?>
-                                    <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                        <?php echo htmlspecialchars_decode($content->content_text);?>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_22', Array('sid' => $sid));?>
 
                     <!-- IF section layout gallery 2 column -->
                     <?php elseif($section_layout == '31'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-6 col-md-6 col-gallery">
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block img-gallery <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="content-gallery">
-                                        <?php if($content->display_title_content == '1'):?>
-                                            <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                                <?php echo $content->content_title;?>
-                                            </h3>
-                                        <?php endif;?>
-                                        <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo htmlspecialchars_decode($content->content_text);?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_31', Array('sid' => $sid));?>
 
                     <!-- IF section layout gallery 3 column -->
                     <?php elseif($section_layout == '32'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-4 col-md-4 col-gallery">
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block img-gallery <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="content-gallery">
-                                        <?php if($content->display_title_content == '1'):?>
-                                            <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                                <?php echo $content->content_title;?>
-                                            </h3>
-                                        <?php endif;?>
-                                        <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo htmlspecialchars_decode($content->content_text);?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_32', Array('sid' => $sid));?>
 
                     <!-- IF section layout gallery 4 column -->
                     <?php elseif($section_layout == '33'): ?>
 
-                        <!-- show its ontent by section_id -->
-                        <div class="col-lg-12 col-md-12">
-                            <?php if($section->display_title == '1'):?>
-                                <?php foreach($content_list->result() as $content): ?>
-                                    <?php if($content->section_id === $sid): ?>
-                                        <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                        <?php if($use_tinymce == 0): ?>
-                                            <h1 class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></h1>
-                                        <?php else: ?>
-                                            <div class="<?php echo $wow;?> <?php echo $content->animate;?>"><?php echo htmlspecialchars_decode($content->title); ?></div>
-                                        <?php endif; ?>
-                                    <?php break; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach($content_list->result() as $content): ?>
-                            <?php if($content->section_id === $sid): ?>
-                                <?php if($content->animation_repeat == '1'){$wow = 'wow';}else{$wow = 'wow_static';}?>
-                                <div class="col-lg-3 col-md-3 col-gallery">
-                                    <?php if(!empty($content->content_image)): ?>
-                                        <img class="img-responsive center-block img-gallery <?php echo $wow;?> <?php echo $content->animate;?>" 
-                                        src="<?php echo base_url();?><?php echo $content->content_image;?>">
-                                    <?php endif; ?>
-                                    <div class="content-gallery">
-                                        <?php if($content->display_title_content == '1'):?>
-                                            <h3 class="center <?php echo $wow;?> <?php echo $content->animate;?>">
-                                                <?php echo $content->content_title;?>
-                                            </h3>
-                                        <?php endif;?>
-                                        <div class="<?php echo $wow;?> <?php echo $content->animate;?>">
-                                            <?php echo htmlspecialchars_decode($content->content_text);?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        <!-- /. -->
+                        <?php $this->load->view('templates/layout/section_layout_33', Array('sid' => $sid));?>
 
                     <?php endif; ?>
                     <!-- END of IF section layout-->
