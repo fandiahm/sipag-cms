@@ -414,7 +414,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">Title</label>
                             <div class="col-md-10">
-                                <input name="content_title" placeholder="Set content title" class="form-control" type="text">
+                                <input name="content_title" placeholder="Set content title" class="form-control" maxlength="100" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
