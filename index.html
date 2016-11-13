@@ -1,92 +1,457 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+<html lang="en">
+<head>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!-- Meta-Information -->
+    <title>Sipag CMS | Single Page Web Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Sipag CMS, easy and simple cms app with rich features">
+    <meta name="keyword" content="Single Page, CMS, Web App, Web Builder, Codeigniter, Ajax">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sipag CMS by fandiahm</title>
-  </head>
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="theme/cosmo/bootstrap_min.css">
+    <!-- Font -->
+    <link href="assets/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Plugins css -->
+    <link rel="stylesheet" href="assets/frontend/css/animate.css">
+    <link rel="stylesheet" href="assets/frontend/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/frontend/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/frontend/owl-carousel/owl.transitions.css">
+    <link rel="stylesheet" href="assets/frontend/css/sipag-styles.css">
+    <!-- Our Website CSS Styles -->
+    <link rel="stylesheet" href="assets/frontend/css/styles.css">
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Sipag CMS</h1>
-        <h2>Single Page CMS</h2>
-        <a href="https://github.com/fandiahm/sipag-cms" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <script src="assets/frontend/js/jquery.min.js"></script>
+    <script src="assets/frontend/js/bootstrap.min.js"></script>
+    <script src="assets/frontend/js/jquery.validate.min.js"></script>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a id="what-is-sipag-cms" class="anchor" href="#what-is-sipag-cms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is Sipag CMS?</h3>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-<p>Sipag CMS is single page application to create single page website. Build with Codeigniter and Bootstrap. Simple and rich feature, Sipag allow you to create single page website instantly with standard Bootstrap theme, so you still can easily make your own style.</p>
+<!-- Our Website Content Goes Here -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+            <a data-scroll-nav="0" class="navbar-brand img" href="#/">
+                <img src="uploads/logo/1475653507_codeigniter-icon.png" class="img-responsive">
+            </a>
+            <a data-scroll-nav="0" class="navbar-brand" href="#/">
+                Sipag CMS
+            </a>
+        </div>
 
-<h3>
-<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h3>
-
-<ul>
-<li>Bootstrap theme</li>
-<li>Animation support</li>
-<li>Scrolling navigation</li>
-<li>Ajax configuration</li>
-<li>Mailbox</li>
-</ul>
-
-<h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
-
-<ul>
-<li>Download and unzip package then extract to your localhost</li>
-<li>Open you browser, call http://localhost/your-folder-name/install and follow instruction.
-More information <a href="https://github.com/fandii/sipag">click here</a>
-</li>
-</ul>
-
-<h3>
-<a id="free-to-use" class="anchor" href="#free-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Free to use</h3>
-
-<p>Sipag CMS is free and open source under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT Software License</a>. This license simply protects my liability and lets you do ANYTHING you want. </p>
-
-<h3>
-<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support</h3>
-
-<p>If you find that Sipag CMS is useful and want to make contribute, feel free to create Pull Request on Sipag CMS github repository. If you some find BUG or something wrong with Sipag CMS, feel free to open new issue. I'm not native english language, so if you find something weird with these words, just tell me, or help me create documentation which still on progress. Also I'm a freelance web developer, hire me by contact below.</p>
-
-<h3>
-<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
-
-<p>fandiahm.me[at]gmail.com </p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/fandiahm/sipag-cms/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/fandiahm/sipag-cms/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/fandiahm/sipag-cms"></a> is maintained by <a href="https://github.com/fandiahm">fandiahm</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" id='5'>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li id='6'>
+                            <a href='https://github.com/fandiahm/sipag-cms/' target='_blank'>Github</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a data-scroll-nav="1">About</a></li>
+                <li><a data-scroll-nav="2">Features</a></li>
+                <li><a data-scroll-nav="3">Credit</a></li>
+                <li><a data-scroll-nav="4">Contact</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container -->
+</nav>
 
-  
-  </body>
+<!-- Banner section -->
+<div class="carousel-section" data-scroll-index="0">
+    <div id="owl-banner" class="owl-carousel owl-theme">
+        <div class="item" style="background-image:url(uploads/banner/banner1.jpg)">
+        <!-- here if you wanna using as image just delete style above and uncomment tag below -->
+        <!--img src="assets/uploads/banner/"-->
+            <div class="caption">
+                <h3>Hello everyone</h3>
+                <h1>Welcome to Sipag CMS</h1>
+                <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-large btn-primary">Download Sipag CMS</a>
+                <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-large btn-default">Sipag CMS on Github</a>
+            </div>
+        </div>
+        <div class="item" style="background-image:url(uploads/banner/banner2.jpg)">
+        <!-- here if you wanna using as image just delete style above and uncomment tag below -->
+        <!--img src="assets/uploads/banner/"-->
+            <div class="caption">
+                <h3>Rich Feature</h3>
+                <h1>Everything is easy to customize</h1>
+                <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-large btn-primary">Download Sipag CMS</a>
+                <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-large btn-default">Sipag CMS on Github</a>
+            </div>
+        </div>
+        <div class="item" style="background-image:url(uploads/banner/banner3.jpg)">
+        <!-- here if you wanna using as image just delete style above and uncomment tag below -->
+        <!--img src="assets/uploads/banner/"-->
+            <div class="caption">
+                <h3>Animation Support</h3>
+                <h1>Choose your own animation</h1>
+                <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-large btn-primary">Download Sipag CMS</a>
+                <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-large btn-default">Sipag CMS on Github</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Section content -->
+
+<!-- Section -->
+<div class="section section-auto " id="info" data-scroll-index="1" style="">
+    
+    <!-- Container -->
+    <div class="container  vertical-align">
+        
+        <!-- Row -->
+        <div class="row content-center ">
+            
+            <div class="col-lg-12 col-md-12">
+                <div class="wow_static pulse"><h1 class="info-section" style="text-align: left;">About</h1></div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <img class="img-responsive thumbnail center-block wow_static pulse" src="uploads/banner/1474631521823.jpg">
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="wow_static pulse">
+                    <h4 class="info-section">Sipag CMS is Mini Single Web Application build with Codeigniter and Bootstrap Framework. Sipag CMS use bootstrap standard template, so you still can easily make your own style. Make sure you're up to date with latest Bootstrap documentation!.</h4>
+                    <p class="info-section">Features :</p>
+                    <div class="col-md-6">
+                        <ul class="info-section">
+                            <li>Bootstrap theme</li>
+                            <li>Scrolling section</li>
+                            <li>11 section layout (add more on next update)</li>
+                            <li>Ajax configuration support</li>
+                            <li>Quick add content</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="info-section">
+                            <li>Sorting section and menu (link)</li>
+                            <li>Animation support</li>
+                            <li>Mailbox (inbox & sent)</li>
+                            <li>Admin template : AdminLTE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+
+<!-- Section -->
+<div class="section section-auto " id="features" data-scroll-index="2" style="background-color:#ecf0f1;">
+            
+    <!-- Container -->
+    <div class="container  vertical-align">
+                
+        <!-- Row -->
+        <div class="row content-center ">
+
+            <!-- IF section layout 1 column -->        
+            <!-- show content -->
+            <div class="col-lg-4 col-md-4">
+                <h3 class="center wow bounce" data-wow-iteration = "infinite">Light and Fast</h3>
+                <img class="img-responsive content-thumbnail center-block wow bounce" data-wow-iteration = "infinite" src="uploads/content/owl5.jpg">
+                <div class="wow bounce" data-wow-iteration = "infinite">
+                    <p style="text-align: center;">Infinite animation (Not implemented yet)</p>  
+                </div>                                 
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h3 class="center wow tada">Easy to customize</h3>
+                <img class="img-responsive content-thumbnail center-block wow tada" src="uploads/content/owl4.jpg">
+                <div class="wow tada">
+                    <p style="text-align: center;">Repeat animation every scolling</p>  
+                </div>                                
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h3 class="center wow_static flipInY">Responsive</h3>
+                <img class="img-responsive content-thumbnail center-block wow_static flipInY" src="uploads/content/owl1.jpg">
+                <div class="wow_static flipInY">
+                    <p style="text-align: center;">Static animation (only once active)</p>  
+                </div>                                  
+            </div>
+        </div>
+    </div>
+</div>   
+
+<!-- Section -->
+<div class="section section-auto " id="features" data-scroll-index="3" style="">
+            
+    <!-- Container -->
+    <div class="container  vertical-align">
+                
+        <!-- Row -->
+        <div class="row content-center ">
+
+            <!-- IF section layout 1 column -->        
+            <!-- show content -->
+            <div class="col-lg-12 col-md-12">
+                <div class="wow_static fadeInUp">
+                    <h1 style="text-align: center;">Credit</h1>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <img class="img-responsive content-thumbnail center-block wow_static fadeInUpBig" src="uploads/content/codeigniter.png">                             
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <img class="img-responsive content-thumbnail center-block wow_static fadeInDownBig" src="uploads/content/html5.png">                             
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <img class="img-responsive content-thumbnail center-block wow_static fadeInUpBig" src="uploads/content/css3.png">                             
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <img class="img-responsive content-thumbnail center-block wow_static fadeInDownBig" src="uploads/content/js.png">                             
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <img class="img-responsive content-thumbnail center-block wow_static fadeInUpBig" src="uploads/content/jquery.png">                             
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <img class="img-responsive content-thumbnail center-block wow_static fadeInDownBig" src="uploads/content/bootstrap.png">                             
+            </div>
+        </div>
+    </div>
+</div>   
+
+<div class="section section-auto section-footer" data-scroll-index="4" style="background-color:#ecf0f1;">
+    <div class="container vertical-align">
+        <div class="row content-center">
+            <div class="col-lg-12">
+                <h1 class="page-header center">
+                    Say Hello                
+                </h1>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="clearfix">
+                    <p>If you find that Sipag CMS is useful and want to make contribute, feel free to create Pull Request on Sipag CMS github repository. If you some find BUG or something wrong with Sipag CMS, feel free to open new issue. I'm not native english language, so if you find something weird with these words, just tell me, or help me create documentation which still on progress. Also I'm a freelance web developer, hire me by contact below. More info visit this <a href="https://github.com/fandiahm/sipag-cms">link</a>.</p>
+                    <p>Contact : <b>fandiahm.me[at]gmail.com</b></p>
+                    <p>Sipag CMS is maintained by <a href="https://github.com/fandiahm">fandiahm</a></p>
+                    <p>
+                        <div class="btn-group">
+                        <a href="https://github.com/fandiahm/sipag-cms" class="btn btn-sm btn-primary">View project on Github</a>
+                        <a href="https://github.com/fandiahm/sipag-cms/zipball/master" class="btn btn-sm btn-default">Download .zip file</a>
+                        <a href="https://github.com/fandiahm/sipag-cms/tarball/master" class="btn btn-sm btn-default">Download .tar.gz file</a>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <form class="form-horizontal" action="#" id="form-msg">
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-3" for="inputEmail">Email</label>
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <input type="email" class="form-control input-md" name="inputEmail" id="inputEmail" maxlength="100" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-3" for="inputName">Name</label>
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <input type="text" class="form-control input-md" name="inputName" id="inputName" maxlength="100" placeholder="Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-3" for="inputText">Message</label>
+                            <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <textarea id="inputText" name="inputText" class="form-control input-md" placeholder="Say hello..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">&nbsp;</label>
+                        <div class="col-md-9">
+                            <button type="button" id="btnSend" onclick="send()" class="btn btn-info">Send</button>  
+                            <button type="button" id="btnReset" onclick="reset_form()" class="btn btn-default">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="scrollToTop">
+    <i class="fa fa-angle-double-up"></i>
+</a>
+
+<div class="footer" style="background-color:#222222">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="footer-content">
+					<p style="text-align: center; color: #ffffff;">Sipag CMS 2016</p>		
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_success" role="dialog">
+    <div class="modal-dialog modal-content">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Success</h3>
+            </div>
+            <div class="modal-body form">
+                <div class="alert alert-info"><p>This is only for demo purpose.</p></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnClose" class="btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Bootstrap modal -->
+
+<script>
+
+	jQuery(function($) {
+		/* main banner */
+		var banner_nav = true;
+		var autoplay = true;
+		var transition = "fade";
+	    $("#owl-banner").owlCarousel({
+
+	        navigation: banner_nav, // Show next and prev buttons
+	        slideSpeed: 5000,
+	        singleItem: true,
+	        transitionStyle: transition,
+	        autoPlay: autoplay,
+	        navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
+
+	    });
+
+	    //var s_time = 1000;
+	    //var s_offset = 0;
+	    /* scrollIt function
+	    $.scrollIt({
+	        scrollTime: s_time,
+	        topOffset: s_offset
+	    });
+        */
+
+	    /* validation form msg*/
+		$('#form-msg').validate({
+            errorElement: 'div',
+            errorClass: 'help-block',
+            focusInvalid: true,
+            ignore: "",
+            rules: {
+                inputEmail: {
+                    required: true,
+                    email: true
+                },
+                inputName: {
+                    required: true
+                },
+                inputText: {
+                    required: true
+                },
+
+            },
+            messages: {
+                inputEmail: {
+                    required: "Please insert your email."
+                },
+                inputName: {
+                    required: "Please tell us your name."
+                },
+                inputText: {
+                    required: "Please describe your message."
+                },
+            },
+            highlight: function (e) {
+                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+                $('.footer').css('bottom', '-40px');
+            },
+            success: function (e) {
+            	$('.footer').css('bottom', '0px');
+                $(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
+                $(e).remove();
+            },
+            errorPlacement: function (error, element) {
+                if(element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
+                    var controls = element.closest('div[class*="col-"]');
+                    if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                    else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                }
+                else error.insertAfter(element.parent());
+            },
+            
+            //submitHandler: function (form) {},
+            invalidHandler: function (form) {
+            }
+        });
+		
+	})
+
+	function reset_form()
+	{
+		$('#form-msg')[0].reset();
+		$('.form-group').removeClass('has-error');
+		$('.help-block').empty();
+		$('.footer').css('bottom', '0px');
+	}
+
+	function send()
+    {
+    	//$('.footer').css('bottom', '-40px');
+        if ($("#form-msg").valid()) 
+        {
+        	//$('.footer').css('bottom', '0px');
+        	$('#btnSend').text('sending message...'); //change button text
+        	$('#btnSave').attr('disabled',true); //set button disable 
+        	
+        	var url;
+
+	        url = "http://localhost/sipag-master/index/ajax_send";
+	        msg = "Thank you for sending message to us. We will respond your message as soon as possible.";
+
+            $('#modal_success').modal('show');
+            $('#form-msg')[0].reset();
+            $('.form-group').removeClass('has-error'); 
+            $('.help-block').empty(); 
+            $('#btnSend').text('Send'); //change button text
+            $('#btnSend').attr('disabled',false); //set button enable 
+	     
+		}
+ 
+    }
+
+</script>
+<!-- Vendor: Javascripts -->
+
+<script src="assets/frontend/owl-carousel/owl.carousel.min.js"></script>
+<script src="assets/frontend/js/scrollIt.min.js"></script>
+<script src="assets/frontend/js/scrollspy.js"></script>
+<script src="assets/frontend/js/WOW.min.js"></script>
+
+<!-- Our Website Javascripts -->
+<script src="assets/frontend/js/scripts.js"></script>
+
+</body>
 </html>
