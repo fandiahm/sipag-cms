@@ -65,7 +65,6 @@ class Index extends CI_Controller
         $data['li']                     = $this->generate_menu_link($data['menu_link']);
         $data['banner_item']            = $banner;
         $data['content_list']           = $content;
-        $data['section']                = $section;
         $data['contact']                = $contact;
         $data['footer_content']         = $footer;
 
@@ -100,7 +99,100 @@ class Index extends CI_Controller
         $data['banner']         = 'templates/banner';
         $data['content']        = 'templates/content';
         $data['footer']         = 'templates/footer';
-        
+
+        /*
+        ** I try to avoid many conditional IF inside view
+        ** so I try to loop and also store conditional IF here
+        ** it's not final yet eventhough it's working
+        */
+        $i = 0;
+        foreach($section->result() as $section)
+        {
+            $sid = $section->section_id;
+            $section_name = $section->section_name;
+            $section_layout = $section->section_layout;
+
+            $auto_height = $section->auto_height;
+            if($auto_height == '1')
+            { 
+                $class_section =  "section-auto"; 
+            } 
+            else 
+            { 
+                $class_section = "section-normal"; 
+            }
+
+            $layout = $section->section_layout;
+            if(($layout == '31') OR ($layout == '32') OR ($layout == '33'))
+            { 
+                $class_gallery_section      = "section-gallery"; 
+                $class_gallery_container    = "container-gallery";
+                $class_gallery_row          = "row-gallery";
+            }
+            else
+            {
+                $class_gallery_section      = "";
+                $class_gallery_container    = "";
+                $class_gallery_row          = "";
+            }
+
+            if($section->display_menu == '1')
+            { 
+                $number++; 
+                $data_scroll_index = 'data-scroll-index="'.$number.'"'; 
+            }
+            else
+            {
+                $data_scroll_index = '';
+            }
+
+            $section_bgimage = $section->bgimage;
+            if(!empty($section_bgimage) && ($use_bgimage == '1'))
+            {
+                $bgimage = 'background-image:url('.base_url().''.$section_bgimage.'); background-size:cover';
+            } 
+            else
+            {
+                $bgimage = '';
+            }
+
+            $section_bgcolor = $section->bgcolor;
+            if(!empty($section_bgcolor) && ($use_bgcolor == '1'))
+            {
+                $bgcolor = 'background-color:'.$section_bgcolor.'';
+            }
+            else
+            {
+                $bgcolor = '';
+            }
+
+            $section_va = $section->vertical_align;
+            if($section_va == '1')
+            {
+                $class_va_container = "vertical-align";
+            }
+            else
+            {
+                $class_va_container = "";
+            }
+
+            $data['section'][$i]['sid'] = $sid;
+            $data['section'][$i]['section_name'] = $section_name;
+            $data['section'][$i]['section_layout'] = $section_layout;
+
+            $data['section'][$i]['class_section'] = $class_section;
+            $data['section'][$i]['class_gallery_section'] = $class_gallery_section;
+            $data['section'][$i]['class_gallery_container'] = $class_gallery_container;
+            $data['section'][$i]['class_gallery_row'] = $class_gallery_row;
+
+            $data['section'][$i]['data_scroll_index'] = $data_scroll_index;
+            $data['section'][$i]['bgimage'] = $bgimage;
+            $data['section'][$i]['bgcolor'] = $bgcolor;
+            $data['section'][$i]['class_va_container'] = $class_va_container;
+
+            $i++;
+        }
+
         $this->load->view('index', $data); 
     }
 
