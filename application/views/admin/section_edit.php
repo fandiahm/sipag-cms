@@ -315,7 +315,6 @@
 
         /* colorpicker */
         $(".my-colorpicker1").colorpicker({
-        	color: 'transparent',
             format: 'hex'
         });
 
