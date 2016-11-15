@@ -5,11 +5,11 @@
 	<div class="wrapper">
 		<header class="main-header">
 			<!-- Logo -->
-    		<a href="<?php echo base_url(); ?>admin/home" class="logo">
+    		<a href="<?php echo base_url(); ?>" target="_blank" class="logo" title="visit homepage">
     			<!-- mini logo for sidebar mini 50x50 pixels -->
-    			<span class="logo-mini"><i class="icon fa fa-leaf"></i></span>
+    			<span class="logo-mini"><i class="icon fa fa-home"></i></span>
     			<!-- logo for regular state and mobile devices -->
-    			<span class="logo-lg">Sipag CMS</span>
+    			<span class="logo-lg">Visit homepage</span>
     		</a>
     		<!-- Header Navbar: style can be found in header.less -->
     		<nav class="navbar navbar-static-top">
