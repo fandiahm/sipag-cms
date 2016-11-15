@@ -46,7 +46,7 @@
 <!-- Our Website Content Goes Here -->
 <?php $this->load->view($header);?>
 <?php $this->load->view($banner);?>
-<?php $this->load->view($content);?>
+<?php $this->load->view($layout);?>
 <?php $this->load->view($footer);?>
 
 <!-- Vendor: Javascripts -->
