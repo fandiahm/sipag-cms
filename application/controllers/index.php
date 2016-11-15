@@ -51,7 +51,7 @@ class Index extends CI_Controller
         $menu          = $this->Model_section->section_menu();
         $banner        = $this->Model_banner->all();
         $section       = $this->Model_section->section_priority();
-        $content       = $this->Model_content->list_content();
+        $content_list  = $this->Model_content->list_content();
         $contact       = $this->Model_contact->find($id)->row();
         $footer        = $this->Model_footer->find($id)->row();
 
@@ -64,7 +64,7 @@ class Index extends CI_Controller
         $data['menu_link']              = $this->Model_menu->menu_priority();
         $data['li']                     = $this->generate_menu_link($data['menu_link']);
         $data['banner_item']            = $banner;
-        $data['content_list']           = $content;
+        $data['content_list']           = $content_list;
         $data['contact']                = $contact;
         $data['footer_content']         = $footer;
 
@@ -97,7 +97,7 @@ class Index extends CI_Controller
 
         $data['header']         = 'templates/header';
         $data['banner']         = 'templates/banner';
-        $data['content']        = 'templates/content';
+        $data['layout']         = 'templates/content';
         $data['footer']         = 'templates/footer';
 
         /*
@@ -105,6 +105,7 @@ class Index extends CI_Controller
         ** so I try to loop and also store conditional IF here
         ** it's not final yet eventhough it's working
         */
+
         $i = 0;
         foreach($section->result() as $section)
         {
@@ -139,7 +140,7 @@ class Index extends CI_Controller
             if($section->display_menu == '1')
             { 
                 $number++; 
-                $data_scroll_index = 'data-scroll-index="'.$number.'"'; 
+                $data_scroll_index =  'data-scroll-index="'.$number.'"'; 
             }
             else
             {
@@ -188,9 +189,64 @@ class Index extends CI_Controller
             $data['section'][$i]['data_scroll_index'] = $data_scroll_index;
             $data['section'][$i]['bgimage'] = $bgimage;
             $data['section'][$i]['bgcolor'] = $bgcolor;
-            $data['section'][$i]['class_va_container'] = $class_va_container;
+            $data['section'][$i]['class_va_container'] = $class_va_container; 
+
+            $find_title = $this->Model_content->content_by_section($sid);
+            foreach($find_title->result() as $row)
+            {
+                $section_id = $row->section_id;  
+                $display_title = $row->display_title;
+                $animation_repeat = $row->animation_repeat;
+                $animate = $row->animate;
+                $title = htmlspecialchars_decode($row->title);
+
+                if($animation_repeat == '1')
+                {
+                    $wow = 'wow';
+                }
+                else
+                {
+                    $wow = 'wow_static';
+                }
+
+                $data['section'][$i]['display_title_section'] = $display_title;
+                $data['section'][$i]['wow'] = $wow;
+                $data['section'][$i]['animate'] = $animate;
+                $data['section'][$i]['section_title'] = $title;
+            }
 
             $i++;
+        }
+
+        $j = 0;
+        foreach($content_list->result() as $content)
+        {
+            $section_id = $content->section_id;
+            $animation_repeat = $content->animation_repeat;
+            $content_animate = $content->animate;
+            $display_title_content = $content->display_title_content;
+            $content_image = $content->content_image;
+            $content_title = $content->content_title;
+            $content_text = htmlspecialchars_decode($content->content_text);
+
+            if($animation_repeat == '1')
+            {
+                $wow_class = 'wow';
+            }
+            else
+            {
+                $wow_class = 'wow_static';
+            }
+
+            $data['content'][$j]['section_id'] = $section_id;
+            $data['content'][$j]['wow'] = $wow_class; 
+            $data['content'][$j]['animate'] = $content_animate;
+            $data['content'][$j]['display_title_content'] = $display_title_content;
+            $data['content'][$j]['content_title'] = $content_title;
+            $data['content'][$j]['content_image'] = $content_image;
+            $data['content'][$j]['content_text'] = $content_text;
+
+            $j++;
         }
 
         $this->load->view('index', $data); 

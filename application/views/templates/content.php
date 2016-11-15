@@ -18,57 +18,57 @@
                     <!-- IF section layout 1 column -->
                     <?php if($section['section_layout'] == '1'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_1', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_1', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout 2 column -->
                     <?php elseif($section['section_layout'] == '2'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_2', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_2', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout 3 column -->
                     <?php elseif($section['section_layout'] == '3'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_3', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_3', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout 4 column -->
                     <?php elseif($section['section_layout'] == '4'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_4', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_4', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout 5 column -->
                     <?php elseif($section['section_layout'] == '5'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_5', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_5', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout 6 column -->
                     <?php elseif($section['section_layout'] == '6'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_6', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_6', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout left image -->
                     <?php elseif($section['section_layout'] == '21'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_21', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_21', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout right image -->
                     <?php elseif($section['section_layout'] == '22'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_22', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_22', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout gallery 2 column -->
                     <?php elseif($section['section_layout'] == '31'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_31', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_31', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout gallery 3 column -->
                     <?php elseif($section['section_layout'] == '32'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_32', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_32', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <!-- IF section layout gallery 4 column -->
                     <?php elseif($section['section_layout'] == '33'): ?>
 
-                        <?php $this->load->view('templates/layout/section_layout_33', Array('sid' => $section['sid']));?>
+                        <?php $this->load->view('templates/layout/section_layout_33', Array('sid' => $section['sid'],'display_title_section' => $section['display_title_section'],'wow' => $section['wow'],'animate' => $section['animate'],'section_title' => $section['section_title']));?>
 
                     <?php endif; ?>
                     <!-- END of IF section layout-->
