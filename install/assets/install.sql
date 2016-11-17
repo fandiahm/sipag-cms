@@ -176,10 +176,12 @@ CREATE TABLE `section` (
   `title` text NOT NULL,
   `bgcolor` text NOT NULL,
   `bgimage` text NOT NULL,
+  `title_animation` text NOT NULL,
   `auto_height` enum('0','1') NOT NULL,
   `vertical_align` enum('0','1') NOT NULL,
   `display_title` enum('0','1') NOT NULL,
   `display_menu` enum('0','1') NOT NULL,
+  `title_animation_repeat` enum('0','1') NOT NULL,
   `priority` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -187,8 +189,8 @@ CREATE TABLE `section` (
 -- Dumping data untuk tabel `section`
 --
 
-INSERT INTO `section` (`section_id`, `section_layout`, `section_name`, `section_menu`, `title`, `bgcolor`, `bgimage`, `auto_height`, `vertical_align`, `display_title`, `display_menu`, `priority`) VALUES
-(1, 1, 'welcome', 'About', '&lt;h1 class=&quot;page-header&quot; style=&quot;text-align: center;&quot;&gt;Welcome &lt;small&gt;to Sipag CMS&lt;/small&gt;&lt;/h1&gt;', 'transparent', '', '1', '1', '1', '1', 1);
+INSERT INTO `section` (`section_id`, `section_layout`, `section_name`, `section_menu`, `title`, `bgcolor`, `bgimage`, `title_animation`, `auto_height`, `vertical_align`, `display_title`, `display_menu`, `title_animation_repeat`, `priority`) VALUES
+(1, 1, 'welcome', 'About', '&lt;h1 class=&quot;page-header&quot; style=&quot;text-align: center;&quot;&gt;Welcome &lt;small&gt;to Sipag CMS&lt;/small&gt;&lt;/h1&gt;', 'transparent', '','tada', '1', '1', '1', '1','0', 1);
 -- --------------------------------------------------------
 
 --

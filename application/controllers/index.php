@@ -193,15 +193,15 @@ class Index extends CI_Controller
                 $data['section'][$i]['bgcolor'] = $bgcolor;
                 $data['section'][$i]['class_va_container'] = $class_va_container; 
 
-                $find_title = $this->Model_content->content_by_section($sid);
+                $find_title = $this->Model_section->find_title($sid);
                 if($find_title->num_rows() > 0) 
                 {
                     foreach($find_title->result() as $row)
                     {
                         $section_id = $row->section_id;  
                         $display_title = $row->display_title;
-                        $animation_repeat = $row->animation_repeat;
-                        $animate = $row->animate;
+                        $animation_repeat = $row->title_animation_repeat;
+                        $animate = $row->title_animation;
                         $title = htmlspecialchars_decode($row->title);
 
                         if($animation_repeat == '1')
@@ -248,7 +248,6 @@ class Index extends CI_Controller
             $data['section'][$i]['class_va_container'] = ''; 
         }
 
-        $j = 0;
         if($content_list->num_rows() > 0) 
         {
             foreach($content_list->result() as $content)
@@ -270,26 +269,26 @@ class Index extends CI_Controller
                     $wow_class = 'wow_static';
                 }
 
-                $data['content'][$j]['section_id'] = $section_id;
-                $data['content'][$j]['wow'] = $wow_class; 
-                $data['content'][$j]['animate'] = $content_animate;
-                $data['content'][$j]['display_title_content'] = $display_title_content;
-                $data['content'][$j]['content_title'] = $content_title;
-                $data['content'][$j]['content_image'] = $content_image;
-                $data['content'][$j]['content_text'] = $content_text;
+                $data['content'][$i]['section_id'] = $section_id;
+                $data['content'][$i]['wow'] = $wow_class; 
+                $data['content'][$i]['animate'] = $content_animate;
+                $data['content'][$i]['display_title_content'] = $display_title_content;
+                $data['content'][$i]['content_title'] = $content_title;
+                $data['content'][$i]['content_image'] = $content_image;
+                $data['content'][$i]['content_text'] = $content_text;
 
-                $j++;
+                $i++;
             }
         }
         else
         {
-            $data['content'][$j]['section_id'] = '';
-            $data['content'][$j]['wow'] = ''; 
-            $data['content'][$j]['animate'] = '';
-            $data['content'][$j]['display_title_content'] = '';
-            $data['content'][$j]['content_title'] = '';
-            $data['content'][$j]['content_image'] = '';
-            $data['content'][$j]['content_text'] = '';
+            $data['content'][$i]['section_id'] = '';
+            $data['content'][$i]['wow'] = ''; 
+            $data['content'][$i]['animate'] = '';
+            $data['content'][$i]['display_title_content'] = '';
+            $data['content'][$i]['content_title'] = '';
+            $data['content'][$i]['content_image'] = '';
+            $data['content'][$i]['content_text'] = '';
         }
 
         $this->load->view('index', $data); 

@@ -1,15 +1,3 @@
-<!-- section title -->
-<div class="col-lg-12 col-md-12">
-    <?php if($display_title_section == '1'): ?>
-    <?php   if($use_tinymce == 0): ?>
-        <h1 class="<?php echo $wow;?> <?php echo $animate;?>"><?php echo $section_title; ?></h1>
-    <?php   else: ?>
-        <div class="<?php echo $wow;?> <?php echo $animate;?>"><?php echo $section_title; ?></div>
-    <?php   endif; ?>
-    <?php endif; ?>
-</div>
-<!-- /section title -->
-
 <!-- show content -->
 <?php foreach($content as $content): ?>
 <?php if($content['section_id'] === $sid): ?>
