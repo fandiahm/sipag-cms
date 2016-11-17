@@ -2,7 +2,7 @@
 
 class Section extends CI_Controller 
 {
-	public function __construct() 
+    public function __construct() 
     {
         parent::__construct();
 
@@ -22,20 +22,20 @@ class Section extends CI_Controller
 
     public function index()
     {
-    	$base_url   = base_url();
+        $base_url   = base_url();
         $title      = '<a href="'.$base_url.'admin/home">Dashboard</a>';
 
-    	$admin      = $this->Model_user->get_admin();
+        $admin      = $this->Model_user->get_admin();
 
-		$data['admin']			= $admin;
-		$data['header']			= 'admin/header';
-		$data['menu']			= 'admin/menu';
-		$data['content']		= 'admin/section';
-		$data['title']			= $title;
-		$data['sub_title']		= 'Section';
-		$data['username'] 		= $this->session->userdata('username');
+        $data['admin']          = $admin;
+        $data['header']         = 'admin/header';
+        $data['menu']           = 'admin/menu';
+        $data['content']        = 'admin/section';
+        $data['title']          = $title;
+        $data['sub_title']      = 'Section';
+        $data['username']       = $this->session->userdata('username');
 
-		$this->load->view('admin/home', $data); 
+        $this->load->view('admin/home', $data); 
     }
 
     public function get_section()
@@ -77,6 +77,10 @@ class Section extends CI_Controller
             elseif($section_layout == '6')
             {
                 $layout = '6 column';
+            }
+            elseif($section_layout == '7')
+            {
+                $layout = 'Slider content';
             }
             elseif($section_layout == '21')
             {
@@ -260,18 +264,29 @@ class Section extends CI_Controller
             {
                 $dm_value = '0';
             }
+
+            if(isset($_POST['title_animation_repeat'])) 
+            {
+                $tar_value = '1';
+            }
+            elseif(!isset($_POST['title_animation_repeat'])) 
+            {
+                $tar_value = '0';
+            }
             
             $data = [
-                'section_layout'    => set_value('section_layout'),
-                'section_name'      => set_value('section_name'),
-                'section_menu'      => set_value('section_menu'),
-                'title'             => set_value('title'),
-                'bgcolor'           => set_value('bgcolor'),
-                'bgimage'           => $data_image,
-                'auto_height'       => $ah_value,
-                'vertical_align'    => $va_value,
-                'display_title'     => $dt_value,
-                'display_menu'      => $dm_value
+                'section_layout'            => set_value('section_layout'),
+                'section_name'              => set_value('section_name'),
+                'section_menu'              => set_value('section_menu'),
+                'title'                     => set_value('title'),
+                'bgcolor'                   => set_value('bgcolor'),
+                'bgimage'                   => $data_image,
+                'title_animation'           => set_value('title_animation'),
+                'auto_height'               => $ah_value,
+                'vertical_align'            => $va_value,
+                'display_title'             => $dt_value,
+                'display_menu'              => $dm_value,
+                'title_animation_repeat'    => $tar_value
             ];
 
             $this->Model_section->create($data);
@@ -409,15 +424,26 @@ class Section extends CI_Controller
                 $dm_value = '0';
             }
 
-            $data['section_layout'] = set_value('section_layout');
-            $data['section_name']   = set_value('section_name');
-            $data['section_menu']   = set_value('section_menu');
-            $data['title']          = set_value('title');
-            $data['bgcolor']        = set_value('bgcolor');
-            $data['auto_height']    = $ah_value;
-            $data['vertical_align'] = $va_value;
-            $data['display_title']  = $dt_value;
-            $data['display_menu']   = $dm_value;
+            if(isset($_POST['title_animation_repeat'])) 
+            {
+                $tar_value = '1';
+            }
+            elseif(!isset($_POST['title_animation_repeat'])) 
+            {
+                $tar_value = '0';
+            }
+
+            $data['section_layout']         = set_value('section_layout');
+            $data['section_name']           = set_value('section_name');
+            $data['section_menu']           = set_value('section_menu');
+            $data['title']                  = set_value('title');
+            $data['bgcolor']                = set_value('bgcolor');
+            $data['title_animation']        = set_value('title_animation');
+            $data['auto_height']            = $ah_value;
+            $data['vertical_align']         = $va_value;
+            $data['display_title']          = $dt_value;
+            $data['display_menu']           = $dm_value;
+            $data['title_animation_repeat'] = $tar_value;
              
             $this->Model_section->update($id,$data);
             $this->session->set_flashdata("message", "Section '" . $sn_val . "' has been updated..");

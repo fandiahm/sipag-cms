@@ -2,7 +2,7 @@
 
 class Content extends CI_Controller 
 {
-	
+    
     public function __construct() 
     {
         parent::__construct();
@@ -23,19 +23,19 @@ class Content extends CI_Controller
 
     public function index()
     {
-    	$base_url   = base_url();
+        $base_url   = base_url();
         $title      = '<a href="'.$base_url.'admin/home">Dashboard</a>';
 
-    	$admin         = $this->Model_user->get_admin();
-		$data['admin']			= $admin;
-		$data['header']			= 'admin/header';
-		$data['menu']			= 'admin/menu';
-		$data['content']		= 'admin/content';
-		$data['title']			= $title;
-		$data['sub_title']		= 'Content';
-		$data['username'] 		= $this->session->userdata('username');
+        $admin         = $this->Model_user->get_admin();
+        $data['admin']          = $admin;
+        $data['header']         = 'admin/header';
+        $data['menu']           = 'admin/menu';
+        $data['content']        = 'admin/content';
+        $data['title']          = $title;
+        $data['sub_title']      = 'Content';
+        $data['username']       = $this->session->userdata('username');
 
-		$this->load->view('admin/home', $data); 
+        $this->load->view('admin/home', $data); 
     }
 
     public function get_allcontent()
@@ -52,7 +52,7 @@ class Content extends CI_Controller
             $content_image    = $content->content_image;
             $content_animate  = $content->animate;
             $content_text     = $content->content_text;
-            $content_text     = character_limiter($content_text, 50);
+            $content_text     = character_limiter($content_text, 100);
 
             $row   = array();
             $row[] = $section_name;

@@ -13,164 +13,207 @@
 <?php endif; ?>
 
 <div class="box box-info">
-	<div class="box-header with-border">
-		<h3 class="box-title">Form add section</h3>
-	</div>
-	<form class="form-horizontal" id="validation-form" role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/section/add">
-		<div class="box-body">
-			<div class="form-group">
-		        <label class="col-xs-12 col-sm-2 control-label no-padding-right" for="section_layout"> Choose layout</label>
+    <div class="box-header with-border">
+        <h3 class="box-title">Form add section</h3>
+    </div>
+    <form class="form-horizontal" id="validation-form" role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/section/add">
+        <div class="box-body">
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 control-label no-padding-right" for="section_layout"> Choose layout</label>
 
-				<div class="col-xs-12 col-sm-4">
-				    <select name="section_layout" class="form-control chosen-select" data-placeholder="Choose a layout...">
-				        <option> </option>
-				        <optgroup label="Standard column">
-				            <option value="1" <?php echo set_select('section_layout', '1'); ?>>1 column</option>
-				            <option value="2" <?php echo set_select('section_layout', '2'); ?>>2 column</option>
-				            <option value="3" <?php echo set_select('section_layout', '3'); ?>>3 column</option>
-				            <option value="4" <?php echo set_select('section_layout', '4'); ?>>4 column</option>
-				            <option value="5" <?php echo set_select('section_layout', '5'); ?>>5 column</option>
-				            <option value="6" <?php echo set_select('section_layout', '6'); ?>>6 column</option>
-				        </optgroup>
-				        <optgroup label="Stand image">
-				            <option value="21" <?php echo set_select('section_layout', '21'); ?>>Left image column</option>
-				            <option value="22" <?php echo set_select('section_layout', '22'); ?>>Right image column</option>
-				        </optgroup>
-				        <optgroup label="Gallery">
-				            <option value="31" <?php echo set_select('section_layout', '31'); ?>>2 column gallery</option>
-				            <option value="32" <?php echo set_select('section_layout', '32'); ?>>3 column gallery</option>
-				            <option value="33" <?php echo set_select('section_layout', '33'); ?>>4 column gallery</option>
-				        </optgroup>
-				    </select>
-				    <small class="help-block"><i><a class="group3" href="<?php echo base_url();?>assets/backend/img/single_column.png" title="1 column">See example</a></i></small>
-				</div>
-			</div>
+                <div class="col-xs-12 col-sm-4">
+                    <select name="section_layout" class="form-control chosen-select" data-placeholder="Choose a layout...">
+                        <option> </option>
+                        <optgroup label="Standard column">
+                            <option value="1" <?php echo set_select('section_layout', '1'); ?>>1 column</option>
+                            <option value="2" <?php echo set_select('section_layout', '2'); ?>>2 column</option>
+                            <option value="3" <?php echo set_select('section_layout', '3'); ?>>3 column</option>
+                            <option value="4" <?php echo set_select('section_layout', '4'); ?>>4 column</option>
+                            <option value="5" <?php echo set_select('section_layout', '5'); ?>>5 column</option>
+                            <option value="6" <?php echo set_select('section_layout', '6'); ?>>6 column</option>
+                        </optgroup>
+                        <optgroup label="Stand image">
+                            <option value="21" <?php echo set_select('section_layout', '21'); ?>>Left image column</option>
+                            <option value="22" <?php echo set_select('section_layout', '22'); ?>>Right image column</option>
+                        </optgroup>
+                        <optgroup label="Gallery">
+                            <option value="31" <?php echo set_select('section_layout', '31'); ?>>2 column gallery</option>
+                            <option value="32" <?php echo set_select('section_layout', '32'); ?>>3 column gallery</option>
+                            <option value="33" <?php echo set_select('section_layout', '33'); ?>>4 column gallery</option>
+                        </optgroup>
+                        <optgroup label="Slider">
+                            <option value="7" <?php echo set_select('section_layout', '7'); ?>>Slider content</option>
+                        </optgroup>
+                    </select>
+                    <small class="help-block"><i><a class="group3" href="<?php echo base_url();?>assets/backend/img/single_column.png" title="1 column">See example</a></i></small>
+                </div>
+            </div>
 
-			<div class="form-group">
-				<label class="control-label col-xs-12 col-sm-2 no-padding-right" for="section_name"> Section name</label>
-				<div class="col-xs-12 col-sm-9">
-					<div class="input-group col-xs-12 col-sm-8">
-					    <input type="text" name="section_name" id="section_name" value="<?php echo set_value('section_name'); ?>" class="form-control limited" maxlength="20" placeholder="Section name"/>
-					    <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="Section name must be unique and only lowercase allowed." title="Information"><i class="icon fa fa-info-circle"></i></span>
-					</div>
-				</div>
-			</div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="section_name"> Section name</label>
+                <div class="col-xs-12 col-sm-9">
+                    <div class="input-group col-xs-12 col-sm-8">
+                        <input type="text" name="section_name" id="section_name" value="<?php echo set_value('section_name'); ?>" class="form-control limited" maxlength="20" placeholder="Section name"/>
+                        <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="Section name must be unique and only lowercase allowed." title="Information"><i class="icon fa fa-info-circle"></i></span>
+                    </div>
+                </div>
+            </div>
 
-			<div class="form-group">
-			    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="section_menu"> Section menu</label>
-			    <div class="col-xs-12 col-sm-9">
-			        <div class="input-group col-xs-12 col-sm-8">
-			        	<input type="text" name="section_menu" id="section_menu" value="<?php echo set_value('section_menu'); ?>" class="form-control limited" maxlength="20" placeholder="Section menu"/>
-			        	<span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="Menu name will appear at top navigation, so this could be unique." title="Information"><i class="icon fa fa-info-circle"></i></span>
-			        </div>
-				</div>
-			</div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="section_menu"> Section menu</label>
+                <div class="col-xs-12 col-sm-9">
+                    <div class="input-group col-xs-12 col-sm-8">
+                        <input type="text" name="section_menu" id="section_menu" value="<?php echo set_value('section_menu'); ?>" class="form-control limited" maxlength="20" placeholder="Section menu"/>
+                        <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="Menu name will appear at top navigation, so this could be unique." title="Information"><i class="icon fa fa-info-circle"></i></span>
+                    </div>
+                </div>
+            </div>
 
-			<?php if($use_tinymce == 0): ?>
-				<div class="form-group">
-				    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="title"> Section title</label>
+            <?php if($use_tinymce == 0): ?>
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="title"> Section title</label>
 
-					<div class="col-xs-12 col-sm-9">
-					    <div class="input-group col-xs-12 col-sm-8">
-					        <input type="text" name="title" id="title" value="<?php echo set_value('title'); ?>" class="form-control" placeholder="Section title"/>
-					        <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="If you want to use Tinymce editor go to setting." title="Information"><i class="icon fa fa-info-circle"></i></span>
-					    </div>
-					</div>
-				</div>
-			<?php else: ?>
-				    
-				<div class="form-group">
-				    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="title"> Section title</label>
+                    <div class="col-xs-12 col-sm-9">
+                        <div class="input-group col-xs-12 col-sm-8">
+                            <input type="text" name="title" id="title" value="<?php echo set_value('title'); ?>" class="form-control" placeholder="Section title"/>
+                            <span class="input-group-addon" data-rel="popover" data-trigger="hover" data-placement="top" data-content="If you want to use Tinymce editor go to setting." title="Information"><i class="icon fa fa-info-circle"></i></span>
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                    
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="title"> Section title</label>
 
-				    <div class="col-xs-12 col-sm-9">
-				        <div class="clearfix">
-				            <textarea name="title" id="editor_title"><?php echo set_value('title'); ?></textarea>
-				        </div>
-				    </div>
-				</div>
-			<?php endif; ?>
+                    <div class="col-xs-12 col-sm-9">
+                        <div class="clearfix">
+                            <textarea name="title" id="editor_title"><?php echo set_value('title'); ?></textarea>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
 
-			<?php if($use_bgcolor == 1): ?>
-				<div class="form-group">
-					<label class="control-label col-xs-12 col-sm-2 no-padding-right" for="bgcolor">Background color</label>
+            <?php if($use_bgcolor == 1): ?>
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="bgcolor">Background color</label>
 
-					<div class="col-xs-12 col-sm-9">
-					    <div id="cp5" class="input-group my-colorpicker1 colorpicker-component col-xs-12 col-sm-6">
-                  			<input type="text" name="bgcolor" value="<?php echo set_value('bgcolor'); ?>" class="form-control">
-                  			<div class="input-group-addon"><i></i></div>
-                		</div>
-					    <small class="input-group">
-					        <i>Leave it transparent if not using background color.</i>
-					    </small>
-					</div>
-				</div>
-    		<?php endif; ?>
+                    <div class="col-xs-12 col-sm-9">
+                        <div id="cp5" class="input-group my-colorpicker1 colorpicker-component col-xs-12 col-sm-6">
+                            <input type="text" name="bgcolor" value="<?php echo set_value('bgcolor'); ?>" class="form-control">
+                            <div class="input-group-addon"><i></i></div>
+                        </div>
+                        <small class="input-group">
+                            <i>Leave it transparent if not using background color.</i>
+                        </small>
+                    </div>
+                </div>
+            <?php endif; ?>
 
-			<?php if($use_bgimage == 1): ?>
-			    <div class="form-group">
-					<label class="control-label col-xs-12 col-sm-2 no-padding-right" for="userfile">Background image</label>
-					<div class="col-xs-12 col-sm-9">
-						<div class="clearfix">
-						    <input type="file" name="userfile" id="id-input-file-3" class="" />
-						    <small class="help-block"><i>Max upload 100kb.</i></small>
-						</div>
-					</div>
-				</div>
-			<?php endif; ?>
+            <?php if($use_bgimage == 1): ?>
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="userfile">Background image</label>
+                    <div class="col-xs-12 col-sm-9">
+                        <div class="clearfix">
+                            <input type="file" name="userfile" id="id-input-file-3" class="" />
+                            <small class="help-block"><i>Max upload 100kb.</i></small>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
 
-			<div class="form-group">
-        		<label class="control-label col-xs-12 col-sm-2 no-padding-right" for="advanced-option">Advanced option</label>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="animate"> Choose animation</label>
 
-        		<div class="col-xs-12 col-sm-5">
-        			<div class="box box-default box-solid collapsed-box">
-        				<div class="box-header with-border">
-        					<h3 class="box-title">Configuration</h3>
-        					<div class="box-tools pull-right">
-                				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                				</button>
-              				</div>
-        				</div>
-        				<div class="box-body no-padding">
-        					<table class="table table-striped">
-        						<tbody class="thin-border-bottom">
-	                                <tr>
-	                                    <td>Auto height section</td>
-	                                    <td>
-	                                    	<input type="checkbox" name="auto_height" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
-	                                    </td>
-	                                </tr>
-	                                <tr>
-	                                    <td>Vertical align section</td>
-	                                    <td>
-	                                        <input type="checkbox" name="vertical_align" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
-	                                    </td>
-	                                </tr>
-	                                <tr>
-	                                    <td>Display title section</td>
-	                                    <td>
-	                                        <input type="checkbox" name="display_title" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
-	                                    </td>
-	                                </tr>
-	                                <tr>
-	                                    <td>Display menu</td>
-	                                    <td>
-	                                        <input type="checkbox" name="display_menu" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
-	                                    </td>
-	                                </tr>
-	                            </tbody>
-        					</table>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="clearfix">
+                        <select name="title_animation" class="input input--dropdown js--animations chosen-select2" id="animate" data-current-selected-option="<?php echo $this->input->post("content_animate"); ?>">
+                            <option value="">-- choose your animation --</option>
+                            <optgroup label="Attention Seekers" id="opt-group-1"></optgroup>
+                            <optgroup label="Bouncing Entrances" id="opt-group-2"></optgroup>
+                            <optgroup label="Bouncing Exits" id="opt-group-3"></optgroup>
+                            <optgroup label="Fading Entrances" id="opt-group-4"></optgroup>
+                            <optgroup label="Fading Exits" id="opt-group-5"></optgroup>
+                            <optgroup label="Flippers" id="opt-group-6"></optgroup>
+                            <optgroup label="Lightspeed" id="opt-group-7"></optgroup>
+                            <optgroup label="Rotating Entrances" id="opt-group-8"></optgroup>
+                            <optgroup label="Rotating Exits" id="opt-group-9"></optgroup>
+                            <optgroup label="Sliding Entrances" id="opt-group-10"></optgroup>
+                            <optgroup label="Sliding Exits" id="opt-group-11"></optgroup>
+                            <optgroup label="Zoom Entrances" id="opt-group-12"></optgroup>
+                            <optgroup label="Zoom Exits" id="opt-group-13"></optgroup>
+                            <optgroup label="Specials" id="opt-group-14"></optgroup>
+                        </select>
+                    </div>
+                    <small class="input-group">
+                        <i>Will be use only for title section.</i>
+                    </small>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <div class="clearfix">
+                        <span id="animationSandbox" style="display: block;"><h4 id="animationSandbox" class="site__title mega">Animated it!</h4></span>
+                    </div>
+                </div>
+            </div>
 
-		</div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-2 no-padding-right" for="advanced-option">Advanced option</label>
 
-		<div class="box-footer box-grey text-center">
-			<a href="<?php echo base_url();?>admin/section" class="btn btn-default">Cancel</a>
-			<button type="submit" class="btn btn-info">Submit</button>
-		</div>
-	</form>
+                <div class="col-xs-12 col-sm-5">
+                    <div class="box box-default box-solid collapsed-box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Configuration</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body no-padding">
+                            <table class="table table-striped">
+                                <tbody class="thin-border-bottom">
+                                    <tr>
+                                        <td>Auto height section</td>
+                                        <td>
+                                            <input type="checkbox" name="auto_height" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vertical align section</td>
+                                        <td>
+                                            <input type="checkbox" name="vertical_align" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Display title section</td>
+                                        <td>
+                                            <input type="checkbox" name="display_title" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Display menu</td>
+                                        <td>
+                                            <input type="checkbox" name="display_menu" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini" checked="checked">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Animation repeat</td>
+                                        <td>
+                                            <input type="checkbox" name="title_animation_repeat" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary" data-offstyle="default" data-size="mini">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box-footer box-grey text-center">
+            <a href="<?php echo base_url();?>admin/section" class="btn btn-default">Cancel</a>
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </form>
 </div>
 
 <div class="img-col-example">
@@ -185,6 +228,7 @@
     <a class="group3" href="<?php echo base_url();?>assets/backend/img/gallery-2-column.jpg" title="Gallery 2 column" data-rel="colorbox"></a>
     <a class="group3" href="<?php echo base_url();?>assets/backend/img/gallery-3-column.jpg" title="Gallery 3 column" data-rel="colorbox"></a>
     <a class="group3" href="<?php echo base_url();?>assets/backend/img/gallery-4-column.jpg" title="Gallery 4 column" data-rel="colorbox"></a>
+    <a class="group3" href="<?php echo base_url();?>assets/backend/img/slider-content.jpg" title="Slider content" data-rel="colorbox"></a>
 
 </div>
 
@@ -303,13 +347,14 @@
 
         /* colorpicker */
         $("#cp5").colorpicker({
-        	color: 'transparent',
+            color: 'transparent',
             format: 'hex'
         });
 
         /* chosen function */
         if(!ace.vars['touch']) {
             $('.chosen-select').chosen({allow_single_deselect:true}); 
+            $('.chosen-select2').chosen({allow_single_deselect:true});
             $('.chosen-select').change(function () {
                 $(this).valid();
             });
@@ -330,7 +375,40 @@
                      $this.next().css({'width': $this.parent().width()});
                 })
             });
+
+            $(window)
+            .off('resize.chosen')
+            .on('resize.chosen', function() {
+                $('.chosen-select2').each(function() {
+                    var $this = $(this);
+                    $this.next().css({'width': $this.parent().width()});
+                })
+            }).trigger('resize.chosen');
+            //resize chosen on sidebar collapse/expand
+            $(document).on('settings.ace.chosen', function(e, event_name, event_val) {
+                if(event_name != 'sidebar_collapsed') return;
+                $('.chosen-select2').each(function() {
+                    var $this = $(this);
+                    $this.next().css({'width': $this.parent().width()});
+                })
+            });
         }
+
+        $('.chosen-select2').on('chosen:showing_dropdown', function(event, params) {
+            var chosen_container = $( event.target ).next( '.chosen-container' );
+            var dropdown = chosen_container.find( '.chosen-drop' );
+            var dropdown_top = dropdown.offset().top - $(window).scrollTop();
+            var dropdown_height = dropdown.height();
+            var viewport_height = $(window).height();
+
+            if ( dropdown_top + dropdown_height > viewport_height ) {
+                chosen_container.addClass( 'chosen-drop-up' );
+            }
+
+        });
+        $('.chosen-select2').on('chosen:hiding_dropdown', function(event, params) {
+            $( event.target ).next( '.chosen-container' ).removeClass( 'chosen-drop-up' );
+        });
         
         PNotify.prototype.options.styling = "bootstrap3";
         /* upload image */
@@ -349,10 +427,10 @@
                 if(typeof file == "string") { //files is just a file name here (in browsers that don't support FileReader API)
                     if(! (/\.(jpe?g|png|gif)$/i).test(file) ) {
                         file = new PNotify({
-						    title: 'File is empty!',
-						    text: 'Please choose a jpg|gif|png image!',
-						    type: 'error'
-						});
+                            title: 'File is empty!',
+                            text: 'Please choose a jpg|gif|png image!',
+                            type: 'error'
+                        });
                         $('#id-input-file-3').val('');
                     }
                 } else {
@@ -360,21 +438,21 @@
                     if( ( type.length > 0 && ! (/^image\/(jpe?g|png|gif)$/i).test(type) )
                     || ( type.length == 0 && ! (/\.(jpe?g|png|gif)$/i).test(file.name) )//for android's default browser!
                     ) {
-                    	file = new PNotify({
-						    title: 'File is not an image!',
-						    text: 'Please choose a jpg|gif|png image!',
-						    type: 'error',
-						    addclass: "stack-modal"
-						});
+                        file = new PNotify({
+                            title: 'File is not an image!',
+                            text: 'Please choose a jpg|gif|png image!',
+                            type: 'error',
+                            addclass: "stack-modal"
+                        });
                         $('#id-input-file-3').val('');
                     }
                     if( file.size > 110000 ) {//~100Kb
                         file = new PNotify({
-						    title: 'File too big!',
-						    text: 'Image size should not exceed 100Kb!',
-						    type: 'error',
-						    addclass: "stack-modal"
-						});
+                            title: 'File too big!',
+                            text: 'Image size should not exceed 100Kb!',
+                            type: 'error',
+                            addclass: "stack-modal"
+                        });
                         $('#id-input-file-3').val('');
                     }
                 }
@@ -395,11 +473,30 @@
             
         });
 
+        /* Example animation */
+        function testAnim(x) {
+            $('#animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                $(this).removeClass();
+            });
+        };
+
+        $(document).ready(function(){
+            $('.js--triggerAnimation').click(function(e){
+                e.preventDefault();
+                var anim = $('.js--animations').val();
+                testAnim(anim);
+            });
+            $('.js--animations').change(function(){
+                var anim = $(this).val();
+                testAnim(anim);
+            });
+        });
+
         /* tinymce */
         window.onload = function()
-    	{
-    		$('iframe#editor_title_ifr').removeAttr('title');
-    	}
+        {
+            $('iframe#editor_title_ifr').removeAttr('title');
+        }
         var fpath = '<?php print($folder_name)?>';
         tinymce.init({
             selector: '#editor_title',

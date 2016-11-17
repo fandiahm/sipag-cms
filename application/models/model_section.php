@@ -7,7 +7,7 @@ class Model_section extends CI_Model
     var $column_order = array('section_name', 'section_layout', 'section_menu', 'title', null); 
     var $column_search = array('section_name', 'section_layout', 'section_menu', 'title'); 
     var $order = array('section_id' => 'asc');
-	
+    
     public function __construct()
     {
         parent::__construct();
@@ -74,11 +74,11 @@ class Model_section extends CI_Model
         return $this->db->count_all_results();
     }
 
-	public function all() 
+    public function all() 
     {
-		$result = $this->db->get('section');
-      	return $result;
-	}
+        $result = $this->db->get('section');
+        return $result;
+    }
 
     public function section_priority() 
     {
@@ -99,11 +99,20 @@ class Model_section extends CI_Model
         return $result;
     }  
 
- 	public function find($id) 
+    public function find($id) 
     {
- 		$row = $this->db->where('section_id',$id)->limit(1)->get('section');
-      	return $row;
- 	}
+        $row = $this->db->where('section_id',$id)->limit(1)->get('section');
+        return $row;
+    }
+
+    public function find_title($sid) 
+    {
+        $this->db->select('*');
+        $this->db->from('section');
+        $this->db->where('section_id',$sid);
+        $result = $this->db->get();
+        return $result;
+    }
 
     public function section_id() 
     {
@@ -113,31 +122,31 @@ class Model_section extends CI_Model
         return $result;
     }
 
- 	public function create($data) 
+    public function create($data) 
     {
- 		try
+        try
         {
-         	$this->db->insert('section', $data);
-         	return true;
-      	}
+            $this->db->insert('section', $data);
+            return true;
+        }
         catch(Exception $e)
         {
-         	echo $e->getMessage();
-      	}
- 	}
+            echo $e->getMessage();
+        }
+    }
 
- 	public function update($id, $data) 
+    public function update($id, $data) 
     {
- 		try
+        try
         {
-         	$this->db->where('section_id',$id)->limit(1)->update('section', $data);
-         	return true;
-      	}
+            $this->db->where('section_id',$id)->limit(1)->update('section', $data);
+            return true;
+        }
         catch(Exception $e)
         {
-         	echo $e->getMessage();
-      	}
- 	}
+            echo $e->getMessage();
+        }
+    }
 
     public function update_priority($total_items, $items)
     {
@@ -154,18 +163,18 @@ class Model_section extends CI_Model
         }
     }
 
- 	public function delete($id) 
+    public function delete($id) 
     {
- 		try 
+        try 
         {
-         	$this->db->where('section_id',$id)->delete('section');
-         	return true;
-      	}
-      	catch(Exception $e) 
+            $this->db->where('section_id',$id)->delete('section');
+            return true;
+        }
+        catch(Exception $e) 
         {
-        	echo $e->getMessage();
-      	}
- 	}
+            echo $e->getMessage();
+        }
+    }
 
     function isNameExist($section_name) 
     {
@@ -203,5 +212,5 @@ class Model_section extends CI_Model
         $this->db->from('section');
         return $this->db->count_all_results();
     }
-	
+    
 }
