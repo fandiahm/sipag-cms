@@ -1,7 +1,7 @@
-# sipag
+# Sipag CMS
 Single Page CMS
 
-Single Page CMS build with Codeigniter 3.1.0 Simple and rich feature, Sipag allow you to create single page website instantly with standard Bootstrap theme, so you still can easily make your own style.
+Sipag CMS is Mini Single Web Application build with Codeigniter and Bootstrap. Sipag CMS use bootstrap standard template, so you still can easily make your own style. Make sure you're up to date with latest Bootstrap documentation!
 
 <b>Installation :</b>
 <ul>
@@ -12,11 +12,14 @@ Single Page CMS build with Codeigniter 3.1.0 Simple and rich feature, Sipag allo
 
 <b>Features :</b>
 <ul>
-<li>Bootstrap theme</li>
-<li>Animation support</li>
-<li>Scrolling navigation</li>
+<li>Bootstrap theme from <a href="https://bootswatch.com" target="_blank">Bootswatch</a></li>
+<li>Scrolling section</li>
+<li>12 section layout</li>
 <li>Ajax configuration</li>
-<li>Messages</li>
+<li>Sorting section and menu</li>
+<li>Animation support</li>
+<li>Mailbox (Inbox + Sent)</li>
+<li>Admin template by <a href="https://github.com/almasaeed2010/AdminLTE/" target="_blank">AdminLTE</a></li>
 </ul>
 
 <b>How to create theme :</b>
@@ -26,7 +29,11 @@ Single Page CMS build with Codeigniter 3.1.0 Simple and rich feature, Sipag allo
 <li>Add your Theme_name, upload CSS file (from getbootstrap.com/customize) and screenshoot of your theme then save</li>
 <li>Back to Theme Gallery and then activate it</li>
 </ul>
-NOTE : Sipag CMS use standard bootstrap layout for its front page, if you upload non-bootstrap style that's fine, as long as you know what to do with it.
+NOTE : 
+<ol>
+<li>Sipag CMS use standard bootstrap layout for its front page, if you upload non-bootstrap style that's fine, as long as you know what to do with it.</li>
+<li>Custom styling file can found inside /sipag-cms-master/assets/frontend/css/styles.css</li>
+</ol>
 
 <b>Credit :</b>
 <ul>
@@ -46,16 +53,5 @@ NOTE : Sipag CMS use standard bootstrap layout for its front page, if you upload
 <li>AdminLTE (Admin template)</li>
 </ul>
 
-
-Still find inspiration to write below...
-
-<b>Contribute :</b>
-....
-
 <b>Issues :</b>
-....
-
-<b>Version :</b>
-....
-
-
+Vertical align section not working with IE
