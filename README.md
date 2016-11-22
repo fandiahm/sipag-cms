@@ -53,5 +53,9 @@ NOTE :
 <li>AdminLTE (Admin template)</li>
 </ul>
 
+<b>Version :</b>
+If you wanna use Sipag CMS with sample content just follow this link : https://github.com/fandiahm/sipag-example/
+Visit example page : https://fandiahm.github.io/sipag-example/
+
 <b>Issues :</b>
 Vertical align section not working with IE
