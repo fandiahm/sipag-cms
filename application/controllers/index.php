@@ -172,11 +172,11 @@ class Index extends CI_Controller
                 $section_va = $section->vertical_align;
                 if($section_va == '1')
                 {
-                    $class_va_container = "vertical-align";
+                    $class_va_section = "vertical-section";
                 }
                 else
                 {
-                    $class_va_container = "";
+                    $class_va_section = "";
                 }
 
                 $data['section'][$i]['sid'] = $sid;
@@ -191,7 +191,7 @@ class Index extends CI_Controller
                 $data['section'][$i]['data_scroll_index'] = $data_scroll_index;
                 $data['section'][$i]['bgimage'] = $bgimage;
                 $data['section'][$i]['bgcolor'] = $bgcolor;
-                $data['section'][$i]['class_va_container'] = $class_va_container; 
+                $data['section'][$i]['class_va_section'] = $class_va_section; 
 
                 $find_title = $this->Model_section->find_title($sid);
                 if($find_title->num_rows() > 0) 

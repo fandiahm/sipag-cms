@@ -6,10 +6,10 @@
     <?php if($section['sid']): ?>
 
         <!-- Section -->
-        <div class="section <?php echo $section['class_section']; ?> <?php echo $section['class_gallery_section']; ?>" id="<?php echo $section['section_name']; ?>" <?php echo $section['data_scroll_index']; ?> style="<?php echo $section['bgcolor']; ?>; <?php echo $section['bgimage']; ?>">
+        <div class="section <?php echo $section['class_section']; ?> <?php echo $section['class_va_section']; ?> <?php echo $section['class_gallery_section']; ?>" id="<?php echo $section['section_name']; ?>" <?php echo $section['data_scroll_index']; ?> style="<?php echo $section['bgcolor']; ?>; <?php echo $section['bgimage']; ?>">
             
             <!-- Container -->
-            <div class="container <?php echo $section['class_gallery_container']; ?> <?php echo $section['class_va_container']; ?>">
+            <div class="container <?php echo $section['class_gallery_container']; ?>">
                 
                 <!-- Row -->
                 <div class="row content-center <?php echo $section['class_gallery_row'] ?>">
