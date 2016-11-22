@@ -58,4 +58,4 @@ If you wanna use Sipag CMS with sample content just follow this link : https://g
 Visit example page : https://fandiahm.github.io/sipag-example/
 
 <b>Issues :</b>
-Vertical align section not working with IE
+<strike>Vertical align section not working with IE</strike> <b>fixed</b> (IE11 and IE10)
